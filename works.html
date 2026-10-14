@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Works | Hillary-Marie</title>
+  <meta name="description" content="The work of tap dance artist Hillary-Marie: her one-woman show In The Pocket, her teaching, and her collaborations.">
+
+  <meta property="og:title" content="The Work | Hillary-Marie">
+  <meta property="og:description" content="In The Pocket, teaching, and collaborations.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/hero.jpg">
+
+  <!-- HM Branding fonts: Economica for titles, Montserrat for everything else -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Economica:wght@400;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       HM BRANDING
+       Change a color here and it changes everywhere on the page.
+       ========================================================== */
+    :root {
+      --navy: #1D2439;        /* Midnight navy: headings, body text */
+      --coral: #E2553C;       /* Kimono coral: buttons, accents */
+      --coral-dark: #C8432C;  /* Coral, pressed or hovered */
+      --teal: #0B4A47;        /* Headshot teal: section labels */
+      --periwinkle: #8BA3E0;  /* Periwinkle: thin lines, dividers */
+      --apricot: #EBAD7F;     /* Apricot: panels */
+      --white: #F3F1EE;       /* Studio white: page background */
+
+      --title-font: "Economica", "Arial Narrow", "Helvetica Neue Condensed", sans-serif;
+      --body-font: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+
+      --edge: clamp(1.25rem, 4vw, 3rem);          /* space at the page edges */
+      --lines-width: clamp(3rem, 6vw, 5.5rem);    /* the curved lines on the left */
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--white);
+      color: var(--navy);
+      font-family: var(--body-font);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    :focus-visible {
+      outline: 3px solid var(--periwinkle);
+      outline-offset: 3px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      margin: -1px; padding: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ==========================================================
+       BUTTONS
+       ========================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3rem;
+      padding: 0.5rem 1.6rem;
+      border: 2px solid transparent;
+      border-radius: 999px;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      line-height: 1.1;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-coral {
+      background: var(--coral);
+      color: #fff;
+    }
+    .btn-coral:hover { background: var(--coral-dark); }
+
+    .btn-outline {
+      border-color: var(--navy);
+      color: var(--navy);
+    }
+    .btn-outline:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .btn-small {
+      min-height: 2.5rem;
+      padding: 0.35rem 1.25rem;
+      font-size: 1.05rem;
+    }
+
+    /* ==========================================================
+       HEADER (the same on every page)
+       ========================================================== */
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem var(--edge);
+      background: var(--white);
+      color: var(--navy);
+      box-shadow: 0 1.5px 0 var(--periwinkle);
+    }
+
+    .wordmark {
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(1rem, 2.5vw, 2.25rem);
+    }
+
+    .site-nav a:not(.btn) {
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      padding: 0.35rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+    .site-nav a:not(.btn):hover,
+    .site-nav a[aria-current="page"] { border-bottom-color: var(--coral); }
+
+    .menu-toggle {
+      display: none;
+      width: 2.75rem;
+      height: 2.75rem;
+      padding: 0;
+      border: 0;
+      background: none;
+      color: inherit;
+      cursor: pointer;
+    }
+    .menu-toggle .bars,
+    .menu-toggle .bars::before,
+    .menu-toggle .bars::after {
+      display: block;
+      width: 1.6rem;
+      height: 2px;
+      margin: 0 auto;
+      background: currentColor;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+    .menu-toggle .bars { position: relative; }
+    .menu-toggle .bars::before,
+    .menu-toggle .bars::after { content: ""; position: absolute; left: 0; }
+    .menu-toggle .bars::before { top: -0.5rem; }
+    .menu-toggle .bars::after { top: 0.5rem; }
+    .menu-toggle[aria-expanded="true"] .bars { background: transparent; }
+    .menu-toggle[aria-expanded="true"] .bars::before { transform: translateY(0.5rem) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] .bars::after { transform: translateY(-0.5rem) rotate(-45deg); }
+
+    @media (max-width: 760px) {
+      .menu-toggle { display: block; position: relative; z-index: 2; }
+
+      .site-nav {
+        position: fixed;
+        inset: 0;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.75rem;
+        background: var(--navy);
+        color: var(--white);
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.25s ease, visibility 0.25s ease;
+      }
+      .site-nav.is-open { visibility: visible; opacity: 1; }
+
+      .site-nav a:not(.btn) {
+        font-family: var(--title-font);
+        font-weight: 700;
+        font-size: 2rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      /* Keep the close button visible on top of the open menu */
+      .site-header.menu-open { color: var(--white); background: transparent; box-shadow: none; }
+      .site-header.menu-open .wordmark { opacity: 0; }
+    }
+
+    /* ==========================================================
+       PAGE FRAME: the curved lines down the left edge, as in the EPK
+       ========================================================== */
+    .page {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: clamp(6.5rem, 12vw, 9rem) var(--edge) clamp(3rem, 7vw, 5rem) calc(var(--lines-width) + 0.75rem);
+    }
+
+    .page-lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: var(--lines-width);
+      height: 100%;
+      overflow: visible;
+    }
+    .page-lines path {
+      fill: none;
+      stroke-width: 1.5;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .page-inner {
+      max-width: 70rem;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      margin: 0 0 clamp(1.75rem, 4vw, 3rem);
+      font-family: var(--title-font);
+      font-weight: 400;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      line-height: 1;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ==========================================================
+       THE WORK: three areas, one after another
+       ========================================================== */
+    html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    .page-title { margin-bottom: clamp(1.25rem, 3vw, 2rem); }
+
+    /* The links under the title that jump to each area */
+    .jump {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 0 0 clamp(2.5rem, 6vw, 4rem);
+      padding: 0;
+      list-style: none;
+    }
+
+    .area {
+      padding: clamp(2.25rem, 5vw, 3.5rem) 0;
+      border-top: 1.5px solid var(--periwinkle);
+    }
+    .area:last-of-type { padding-bottom: 0; }
+
+    .area-title {
+      margin: 0;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: clamp(2rem, 4.5vw, 2.8rem);
+      line-height: 1.1;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+    /* The short coral line under each area title, as in the EPK */
+    .area-title::after {
+      content: "";
+      display: block;
+      width: 6.5rem;
+      height: 2px;
+      margin: 0.9rem 0 clamp(1.5rem, 3vw, 2.25rem);
+      background: var(--coral);
+    }
+
+    /* Small coral headings inside an area */
+    .label {
+      margin: 0 0 0.6rem;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.3rem;
+      line-height: 1.2;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--coral);
+    }
+
+    .area p { margin: 0 0 1.1rem; }
+    .area p:last-child { margin-bottom: 0; }
+    .lede { font-weight: 500; font-size: 1.1rem; line-height: 1.55; }
+    .prose { max-width: 44rem; }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+      gap: clamp(1.75rem, 4vw, 3.5rem);
+      align-items: start;
+    }
+
+    .area-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: clamp(1.75rem, 3.5vw, 2.5rem);
+    }
+
+    /* ---------- Signature Work ---------- */
+    .show-name {
+      margin: 0;
+      font-family: var(--title-font);
+      font-weight: 400;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      line-height: 1;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--coral);
+    }
+    .show-tag { margin: 0.6rem 0 clamp(1.5rem, 3vw, 2.25rem) !important; font-weight: 600; }
+
+    /* The trailer frame. When the trailer exists, the note in the
+       HTML below says how to put it here. */
+    .video-frame {
+      position: relative;
+      display: grid;
+      place-items: center;
+      aspect-ratio: 16 / 9;
+      border: 5px solid var(--coral);
+      background: var(--navy);
+      color: var(--white);
+      text-decoration: none;
+    }
+    .video-frame iframe { position: absolute; inset: 0; z-index: 3; width: 100%; height: 100%; border: 0; }
+    /* A photo used as the cover of a video frame */
+    .video-frame .poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .video-frame .play,
+    .video-frame .video-note { position: relative; z-index: 2; }
+    .video-frame .video-note { position: absolute; }
+    .video-frame:has(.poster)::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      z-index: 1;
+      height: 35%;
+      background: linear-gradient(to top, rgba(29, 36, 57, 0.75), rgba(29, 36, 57, 0));
+    }
+    .video-frame.has-video:has(.poster)::after { display: none; }
+    /* With a photo cover, the play button and note sit in the bottom
+       corner so they do not cover the person in the photo */
+    .video-frame:has(.poster) .play {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      width: 3.25rem;
+      height: 3.25rem;
+    }
+    .video-frame:has(.poster) .play::before { border-width: 0.55rem 0 0.55rem 0.9rem; }
+    .video-frame:has(.poster) .video-note {
+      left: 5rem;
+      right: auto;
+      bottom: 1.85rem;
+      text-align: left;
+    }
+    /* Once a video code is filled in, the frame shows its picture */
+    /* Finished thumbnails already carry their own shading */
+    .video-frame.thumb::after { content: none; }
+    .video-frame.has-video {
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+    }
+    .video-frame.has-video .video-note { display: none; }
+    .video-frame.is-playing .play { display: none; }
+
+    .collab-lede { margin-bottom: clamp(1.5rem, 3vw, 2.25rem) !important; }
+
+    /* One large video above a list */
+    .feature-video { max-width: 52rem; }
+
+    /* A framed photo. Shows a placeholder until the photo file exists. */
+    .photo-slot {
+      position: relative;
+      display: grid;
+      place-items: center;
+      aspect-ratio: 4 / 5;
+      border: 5px solid var(--coral);
+      background: rgba(235, 173, 127, 0.45);
+      overflow: hidden;
+    }
+    .photo-slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .photo-slot.no-photo img { display: none; }
+    .photo-note {
+      padding: 1rem;
+      text-align: center;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+    .panel { margin-top: 1.5rem; }
+    h3.label.block { margin-bottom: 0.6rem; }
+    .play {
+      display: grid;
+      place-items: center;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      background: var(--coral);
+    }
+    .play::before {
+      content: "";
+      margin-left: 0.3rem;
+      border-style: solid;
+      border-width: 0.7rem 0 0.7rem 1.1rem;
+      border-color: transparent transparent transparent var(--white);
+    }
+    .video-note {
+      position: absolute;
+      left: 0; right: 0; bottom: 0.9rem;
+      text-align: center;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(1.25rem, 3vw, 2.5rem);
+      margin-top: clamp(1.75rem, 4vw, 2.75rem);
+    }
+    .facts > div { padding-top: 1rem; border-top: 1.5px solid var(--periwinkle); }
+    .facts ul { margin: 0; padding: 0; list-style: none; font-size: 0.95rem; }
+    .facts li + li { margin-top: 0.4rem; }
+
+    /* ---------- Educator ---------- */
+    /* Apricot panel with the coral bar, as in the EPK */
+    .panel {
+      padding: 1.4rem 1.4rem 1.4rem 1.6rem;
+      border-left: 5px solid var(--coral);
+      background: rgba(235, 173, 127, 0.45);
+    }
+    .panel ul { margin: 0; padding: 0; list-style: none; font-size: 0.95rem; }
+    .panel li + li { margin-top: 0.65rem; }
+
+    .classes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(1.25rem, 3vw, 2.25rem);
+    }
+    .class h4 {
+      margin: 0 0 0.5rem;
+      padding-top: 1rem;
+      border-top: 2px solid var(--coral);
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.45rem;
+      line-height: 1.2;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .class p { font-size: 0.95rem; }
+
+    .block { margin-top: clamp(2rem, 4vw, 3rem); }
+
+    .plain-list { margin: 0; padding: 0; list-style: none; }
+    .plain-list li + li { margin-top: 0.5rem; }
+
+    .quote {
+      margin: 0;
+      padding: 1.4rem 1.4rem 1.4rem 1.6rem;
+      border-left: 5px solid var(--coral);
+      background: rgba(235, 173, 127, 0.45);
+      font-weight: 500;
+    }
+    .quote p { margin: 0 0 0.75rem; }
+    .quote cite { font-style: normal; font-weight: 600; font-size: 0.9rem; }
+
+    /* iTapOnline Programs: three apricot cards */
+    .programs-tag {
+      margin: -0.2rem 0 1.25rem !important;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+    .programs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(1rem, 2.5vw, 1.5rem);
+    }
+    .program {
+      padding: 1.4rem 1.4rem 1.5rem;
+      border-top: 5px solid var(--coral);
+      background: rgba(235, 173, 127, 0.45);
+    }
+    .program-img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
+      margin: 0 0 1rem;
+    }
+    .program h4 {
+      margin: 0 0 0.5rem;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.45rem;
+      line-height: 1.2;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .program p { font-size: 0.95rem; }
+    .programs-block .area-actions { margin-top: 1.5rem; }
+
+    /* ---------- Lists of credits: name in bold, the rest plain ---------- */
+    .credits {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      columns: 2;
+      column-gap: clamp(1.5rem, 4vw, 3.5rem);
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+    .credits li { padding: 0.3rem 0; break-inside: avoid; }
+    .credits strong { font-weight: 700; }
+    .credits.one { columns: 1; }
+
+
+    /* ---------- The drop-downs ---------- */
+    .drops { border-top: 1.5px solid var(--periwinkle); }
+
+    .drop { border-bottom: 1.5px solid var(--periwinkle); }
+
+    .drop summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.1rem 0;
+      cursor: pointer;
+      list-style: none;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: clamp(1.5rem, 3vw, 1.9rem);
+      line-height: 1.15;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+    .drop summary::-webkit-details-marker { display: none; }
+    .drop summary:hover { color: var(--coral); }
+
+    /* The plus sign that turns into a minus when open */
+    .drop-icon {
+      position: relative;
+      flex: none;
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--coral);
+    }
+    .drop-icon::before,
+    .drop-icon::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      margin-top: -1px;
+      background: currentColor;
+      transition: transform 0.25s ease;
+    }
+    .drop-icon::after { transform: rotate(90deg); }
+    .drop[open] .drop-icon::after { transform: rotate(0deg); }
+
+    .drop-body {
+      overflow: hidden;
+      max-width: 44rem;
+      padding: 0 0 1.75rem;
+    }
+    .drop-body p { margin: 0 0 1.1rem; }
+    .drop-body p:last-child { margin-bottom: 0; }
+    .drop-body strong { font-weight: 700; }
+
+    .drops { margin-top: clamp(2rem, 4vw, 3rem); }
+    .drop summary { font-size: clamp(1.3rem, 2.6vw, 1.6rem); }
+    .drop-body { max-width: none; }
+
+    @media (max-width: 860px) {
+      .split { grid-template-columns: 1fr; }
+      .facts { grid-template-columns: 1fr; gap: 1.25rem; }
+      .classes { grid-template-columns: 1fr; }
+      .programs { grid-template-columns: 1fr; }
+      .photo-slot { max-width: 22rem; }
+    }
+
+    @media (max-width: 600px) {
+      .credits { columns: 1; }
+      /* On phones the note stacks above the play button, clear of the photo's subject */
+      .video-frame:has(.poster) .play { left: 0.75rem; bottom: 0.75rem; width: 2.75rem; height: 2.75rem; }
+      .video-frame:has(.poster) .video-note {
+        left: 0.75rem;
+        bottom: 4rem;
+        width: 5rem;
+        font-size: 0.8rem;
+        line-height: 1.3;
+        letter-spacing: 0.12em;
+      }
+      .jump { display: grid; grid-template-columns: 1fr 1fr; }
+      .jump .btn { width: 100%; padding-inline: 0.5rem; letter-spacing: 0.08em; white-space: nowrap; font-size: clamp(0.85rem, 3.9vw, 1.05rem); }
+    }
+
+    /* ==========================================================
+       FOOTER (the same on every page)
+       ========================================================== */
+    .site-footer {
+      padding: clamp(2.5rem, 6vw, 4rem) var(--edge) 1.5rem;
+      background: var(--white);
+      border-top: 1.5px solid var(--periwinkle);
+    }
+
+    .footer-columns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem clamp(1.5rem, 5vw, 4rem);
+      max-width: 62rem;
+      margin: 0 auto;
+    }
+
+    .footer-columns > div + div {
+      padding-left: clamp(1.5rem, 5vw, 4rem);
+      border-left: 1.5px solid var(--periwinkle);
+    }
+
+    .footer-heading {
+      margin: 0 0 0.6rem;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--coral);
+    }
+
+    .footer-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+    .footer-list li + li { margin-top: 0.45rem; }
+    .footer-list a { text-decoration: none; border-bottom: 1.5px solid transparent; }
+    .footer-list a:hover { border-bottom-color: var(--coral); }
+
+    .copyright {
+      margin: clamp(2rem, 5vw, 3rem) 0 0;
+      text-align: center;
+      font-size: 0.7rem;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 640px) {
+      .footer-columns { grid-template-columns: 1fr; }
+      .footer-columns > div + div {
+        padding-left: 0;
+        padding-top: 1.5rem;
+        border-left: 0;
+        border-top: 1.5px solid var(--periwinkle);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========================================================
+       HEADER
+       ======================================================== -->
+  <header class="site-header" id="site-header">
+    <a class="wordmark" href="index.html">Hillary-Marie</a>
+
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="sr-only">Menu</span>
+      <span class="bars" aria-hidden="true"></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <a href="about.html">The Story</a>
+      <a href="works.html" aria-current="page">The Work</a>
+      <a href="press-kit.html">For Presenters</a>
+      <a href="contact.html">Connect</a>
+      <a class="btn btn-coral btn-small" href="contact.html">Book</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <svg class="page-lines" viewBox="0 0 120 1056" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M18,0 C95,280 95,660 4,1056" stroke="#8BA3E0"/>
+      <path d="M30,0 C108,280 108,660 14,1056" stroke="#E2553C"/>
+    </svg>
+
+    <div class="page-inner">
+      <h1 class="page-title">The Work</h1>
+
+      <!-- The links that jump down the page to each area -->
+      <ul class="jump" aria-label="Areas of work">
+        <li><a class="btn btn-outline btn-small" href="#signature-work">Signature Work</a></li>
+        <li><a class="btn btn-outline btn-small" href="#collaborations">Collaborations</a></li>
+        <li><a class="btn btn-outline btn-small" href="#educator">Educator</a></li>
+      </ul>
+
+      <!-- ====================================================
+           AREA 1: SIGNATURE WORK (In The Pocket)
+           ==================================================== -->
+      <section class="area" id="signature-work">
+        <h2 class="area-title">Signature Work</h2>
+
+        <p class="show-name" id="in-the-pocket">In The Pocket</p>
+        <p class="show-tag">An award-winning, interdisciplinary one-woman show by Hillary-Marie</p>
+
+        <div class="split">
+          <!-- THE TRAILER
+               When the trailer is on YouTube, copy the code after
+               "v=" in its address and paste it between the quotes
+               of data-video="" below. The photo stays as the cover
+               until someone presses play. -->
+          <div class="video-frame" data-video="" data-title="In The Pocket trailer">
+            <!-- The picture shown on the trailer frame. To change it,
+                 replace the file images/in-the-pocket.jpg -->
+            <img class="poster" src="images/in-the-pocket.jpg" alt="Hillary-Marie on stage in In The Pocket, in a green suit and gold tap shoes, arms thrown up mid-shout in front of a wooden bench">
+            <span class="play" aria-hidden="true"></span>
+            <span class="video-note">Trailer coming soon</span>
+          </div>
+
+          <div class="prose">
+            <p class="lede">In The Pocket transforms the void of silence into a world brimming with music, movement, and magic.</p>
+            <p>Weaving together foot, body, and vocal percussion to turn both stage and audience into a living instrument, Hillary-Marie shares her story, beginning with the drum lessons her father gave her. And from there, she traces how she found tap dance, threading in the history and oral tradition of the art form.</p>
+            <p>Celebrated for its fusion of choreography, storytelling, live improvisation, and comedic timing, In The Pocket invites audiences into rhythm. Not just to hear it, but to feel it, breathe it, and experience it together.</p>
+            <p>Developed during her 2019 to 2022 fellowship at NJPAC.</p>
+          </div>
+        </div>
+
+        <div class="facts">
+          <div>
+            <h3 class="label">At a glance</h3>
+            <ul>
+              <li>Solo show for theaters, festivals and schools</li>
+              <li>Run time: 45 minutes</li>
+              <li>Tech: sprung wooden tap dance floor (min. 6&rsquo; x 4&rsquo;), 2 floor mics, 1 wireless headset mic, 2 monitors</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="label">Supported by</h3>
+            <ul>
+              <li>Mid Atlantic Arts</li>
+              <li>NJPAC</li>
+              <li>NJ State Council on the Arts</li>
+              <li>Dance New Jersey</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="label">For fans of</h3>
+            <ul>
+              <li>STOMP</li>
+              <li>Savion Glover</li>
+              <li>Bobby McFerrin</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="area-actions">
+          <a class="btn btn-coral" href="contact.html?about=performance">Book In The Pocket</a>
+        </div>
+      </section>
+
+      <!-- ====================================================
+           AREA 2: COLLABORATIONS
+           ==================================================== -->
+      <section class="area" id="collaborations">
+        <h2 class="area-title">Collaborations</h2>
+
+        <p class="lede prose collab-lede">A sought-after collaborator, Hillary-Marie has shared the stage with music greats across jazz, a cappella, folk, flamenco, and symphonic worlds, always as one more voice in the band.</p>
+
+        <!-- THE COLLABORATIONS VIDEO
+             When the video is on YouTube, copy the code after "v="
+             in its address (in youtube.com/watch?v=abc123XYZ the
+             code is abc123XYZ) and paste it between the quotes of
+             data-video="" below. -->
+        <div class="video-frame feature-video thumb" data-video="3AAgTlSP59Y" data-title="Hillary-Marie collaboration highlights">
+          <img class="poster" src="images/highlights-collaboration.jpg" alt="">
+          <span class="play" aria-hidden="true"></span>
+          <span class="video-note">Video coming soon</span>
+        </div>
+
+        <h3 class="label block">Live stage &amp; recordings</h3>
+        <ul class="credits">
+          <li><strong>Take 6</strong> Grammy Award-Winning A Cappella Group</li>
+          <li><strong>Big Bad VooDoo Daddy</strong> Grammy-Nominated Band</li>
+          <li><strong>Wycliffe Gordon</strong> Award-Winning Trombonist</li>
+          <li><strong>Marvin Hamlisch</strong> Award-Winning Composer</li>
+          <li><strong>Nat Adderley, Jr.</strong> Pianist and Arranger</li>
+          <li><strong>New Jersey Symphony Orchestra</strong></li>
+          <li><strong>Princeton Symphony Orchestra</strong></li>
+          <li><strong>American Tap Dance Foundation</strong> Tony Waag</li>
+          <li><strong>Carolyn Dorfman Dance</strong> Up Close &amp; Personal</li>
+          <li><strong>Heather Cornell</strong> Manhattan Tap Repertoire</li>
+          <li><strong>Roxane Butterfly</strong> New Dance Alliance</li>
+          <li><strong>Boston Tap Company</strong> Rhythm in the Night</li>
+          <li><strong>LayeRhythm</strong> Mai Lê Hô</li>
+          <li><strong>1 More Than 2</strong> Lynn Schwab, Jenn Rose</li>
+          <li><strong>JC Hopkins Biggish Band</strong></li>
+          <li><strong>Emily Braden</strong> Vocalist</li>
+          <li><strong>Nancy Harmes</strong> Vocalist</li>
+          <li><strong>Ami Madeleine</strong> Folk Singer-Songwriter</li>
+          <li><strong>Jennifer Vincent</strong> Bassist</li>
+          <li><strong>Willerm Delisfort</strong> Pianist</li>
+          <li><strong>Mark G. Meadows</strong> Pianist</li>
+          <li><strong>Vincent Pierce Smith</strong> Percussionist</li>
+          <li><strong>Gabriel Hermida</strong> Flamenco Guitarist</li>
+          <li><strong>Mark Martin</strong> Champion Beatboxer</li>
+        </ul>
+
+        <div class="area-actions">
+          <a class="btn btn-coral" href="contact.html?about=collaboration">Propose a collaboration</a>
+        </div>
+      </section>
+
+      <!-- ====================================================
+           AREA 3: EDUCATOR
+           ==================================================== -->
+      <section class="area" id="educator">
+        <h2 class="area-title">Educator</h2>
+
+        <div class="split">
+          <!-- THE TEACHING PHOTO
+               Save a photo as images/teaching.jpg and it appears
+               here. Until then this space shows a placeholder. -->
+          <div class="photo-slot">
+            <img src="images/teaching.jpg" alt="Hillary-Marie teaching a tap dance class">
+            <span class="photo-note">Teaching photo to come</span>
+          </div>
+
+          <div>
+            <div class="prose">
+              <p class="lede">Hillary-Marie is widely regarded as a teacher of teachers. For nearly two decades she has taught tap dancers and dance educators across four continents, pairing the craft of the art form with its history and oral tradition.</p>
+              <p>Her teaching is built on two frameworks she developed: <strong>The 5 Fundamentals of Tap Dance</strong> and <strong>The Fundamental Fusion Approach</strong>.</p>
+            </div>
+
+            <div class="panel">
+              <h3 class="label">At a glance</h3>
+              <ul>
+                <li>Founder of iTapOnline.com (since 2016), educating more than 350 tap dancers and tap teachers monthly</li>
+                <li>Creator of the iTap Teacher Certificate Program, training hundreds of educators annually</li>
+                <li>Founder of Jersey Tap Fest (2010&ndash;2020)</li>
+                <li>Director, FutureSTEP Tap Company (2016&ndash;2023)</li>
+                <li>Co-Founder of Grooves Unlimited Dance Studio (2012&ndash;2023)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="block">
+          <h3 class="label">Signature classes</h3>
+          <div class="classes">
+            <div class="class">
+              <h4>Rhythm Remix</h4>
+              <p>Footwork, flow, and feel. This class remixes rhythms in real time, building fluid movement and a deeper connection to the music.</p>
+            </div>
+            <div class="class">
+              <h4>Body, Voice, Feet: One Instrument</h4>
+              <p>Footwork, vocal rhythm and movement come together as one connected instrument. A playful way to experience music from head to toe.</p>
+            </div>
+            <div class="class">
+              <h4>Improve Your Improv</h4>
+              <p>Playful exercises using body percussion, voice and feet build confidence, listening skills and the joy of creating in the moment.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="block split">
+          <div>
+            <h3 class="label">Available for booking</h3>
+            <ul class="plain-list">
+              <li>Master classes and workshops for all levels</li>
+              <li>Teacher training and professional development for dance and music educators</li>
+              <li>School and community residencies</li>
+              <li>Lecture demonstrations on tap history</li>
+            </ul>
+          </div>
+
+          <blockquote class="quote">
+            <p>&ldquo;Cannot say enough about Hillary-Marie&rsquo;s program. Thought I was doing something for myself but realize the gift will truly be given to my students as I pass on this info.&rdquo;</p>
+            <cite>Nicole Messina</cite>
+          </blockquote>
+        </div>
+
+        <!-- ITAPONLINE PROGRAMS -->
+        <div class="block programs-block">
+          <h3 class="label">iTapOnline Programs</h3>
+          <p class="programs-tag">Any level. Anytime. Anywhere.</p>
+          <div class="programs">
+            <div class="program">
+              <img class="program-img" src="images/program-studio.png" alt="The iTapOnline Studio shown on a desktop screen and a laptop" loading="lazy">
+              <h4>The iTapOnline Studio</h4>
+              <p>Access high-quality tap tutorials, anytime, anywhere, at every level.</p>
+            </div>
+            <div class="program">
+              <img class="program-img" src="images/program-tcp.png" alt="The iTap Teacher Certificate Program shown on a laptop and a tablet" loading="lazy">
+              <h4>The iTap Teacher Certificate Program</h4>
+              <p>A 10-week structured summer training to become the best tap teacher you can be.</p>
+            </div>
+            <div class="program">
+              <img class="program-img" src="images/program-retreat.png" alt="iTap Teacher Retreat participants smiling in a group selfie and standing in a circle in the studio" loading="lazy">
+              <h4>The iTap Teacher Retreat</h4>
+              <p>An intimate, in-studio weekend to reconnect with your artistry, your people, and your purpose.</p>
+            </div>
+          </div>
+          <div class="area-actions">
+            <a class="btn btn-outline" href="https://www.itaponline.com/programs" target="_blank" rel="noopener">Study with iTapOnline</a>
+          </div>
+        </div>
+
+        <!-- The long lists stay folded until clicked, like on The Story page -->
+        <div class="drops">
+          <details class="drop">
+            <summary>Featured Artist &amp; Faculty <span class="drop-icon" aria-hidden="true"></span></summary>
+            <div class="drop-body">
+              <ul class="credits">
+                <li><strong>Anguilla Jazz Boat</strong> Anguilla</li>
+                <li><strong>Big Apple Tap Festival</strong> New York</li>
+                <li><strong>Body Rhythm Hamburg</strong> Germany</li>
+                <li><strong>BOGOTap Festival</strong> Colombia</li>
+                <li><strong>Brazil International Tap Festival</strong> Brazil</li>
+                <li><strong>Centro De Danza</strong> Honduras</li>
+                <li><strong>Cien Ritmos un Paso</strong> Guatemala</li>
+                <li><strong>Claque Tap</strong> Spain</li>
+                <li><strong>Costa Rica Open Dance Fest</strong> Costa Rica</li>
+                <li><strong>CTTap Collective</strong> Connecticut</li>
+                <li><strong>Dance For All</strong> Scotland</li>
+                <li><strong>Dance On The Lawn</strong> New Jersey</li>
+                <li><strong>Escola Luthier de Dansa</strong> Spain</li>
+                <li><strong>House of Hoofing</strong> Sweden</li>
+                <li><strong>International Body Music Festival</strong> Greece</li>
+                <li><strong>JAM Project</strong> Maryland</li>
+                <li><strong>Jimmy Slyde Institute</strong> Spain</li>
+                <li><strong>Knock on Wood Tap Studio</strong> Washington D.C.</li>
+                <li><strong>The Krazy Tap</strong> Taiwan</li>
+                <li><strong>LaJam</strong> Spain</li>
+                <li><strong>Lindy Focus</strong> North Carolina</li>
+                <li><strong>London Tap Academy</strong> UK</li>
+                <li><strong>Luthier Tap Festival</strong> Spain</li>
+                <li><strong>MadTap</strong> Spain</li>
+                <li><strong>Mallorca Tap Festival</strong> Spain</li>
+                <li><strong>NADAA Greater NY Chapter</strong> New Jersey</li>
+                <li><strong>New Dance Alliance</strong> NYC</li>
+                <li><strong>NJHS Dance Festival</strong> New Jersey</li>
+                <li><strong>Old Kent Road</strong> UK</li>
+                <li><strong>Orlando Tap Festival</strong> Florida</li>
+                <li><strong>Paris Tap Crew</strong> France</li>
+                <li><strong>Philly Tap Challenge</strong> Pennsylvania</li>
+                <li><strong>Resonance Tap Convention</strong> U.S. tour</li>
+                <li><strong>Rock City Tap Fest</strong> Ohio</li>
+                <li><strong>Swim Out Costa Brava</strong> Spain</li>
+                <li><strong>Tanzhaus Tap Ahead Festival</strong> Germany</li>
+                <li><strong>Westobou Festival</strong> Georgia</li>
+                <li><strong>When Waves Collide</strong> New Jersey</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="drop">
+            <summary>Universities <span class="drop-icon" aria-hidden="true"></span></summary>
+            <div class="drop-body">
+              <ul class="credits one">
+                <li><strong>Augusta University</strong> Georgia</li>
+                <li><strong>Drew University</strong> New Jersey</li>
+                <li><strong>Fairleigh Dickinson University</strong> New Jersey</li>
+                <li><strong>Hofstra University</strong> New York</li>
+                <li><strong>Long Island University</strong> New York</li>
+                <li><strong>Montclair State University</strong> New Jersey</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+
+        <div class="area-actions">
+          <a class="btn btn-coral" href="contact.html?about=masterclass">Book a master class</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+  <footer class="site-footer">
+    <div class="footer-columns">
+      <div>
+        <h2 class="footer-heading">Booking</h2>
+        <ul class="footer-list">
+          <li><a href="contact.html">Booking inquiries</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-heading">Social</h2>
+        <ul class="footer-list">
+          <li><a href="https://www.instagram.com/hillarymarietap" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/hillarymarieofficial" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.youtube.com/hillarymarietap" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-heading">For Presenters</h2>
+        <ul class="footer-list">
+          <li><a href="works.html#signature-work">In The Pocket</a></li>
+          <li><a href="press-kit.html">For Presenters</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="copyright">&copy; <span id="year">2026</span> Hillary-Marie, LLC</p>
+  </footer>
+
+  <script>
+    (function () {
+      var header = document.getElementById("site-header");
+      var toggle = document.getElementById("menu-toggle");
+      var nav = document.getElementById("site-nav");
+
+      /* Phone menu */
+      function setMenu(open) {
+        nav.classList.toggle("is-open", open);
+        header.classList.toggle("menu-open", open);
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        document.body.style.overflow = open ? "hidden" : "";
+      }
+      toggle.addEventListener("click", function () {
+        setMenu(toggle.getAttribute("aria-expanded") !== "true");
+      });
+      nav.addEventListener("click", function (event) {
+        if (event.target.closest("a")) { setMenu(false); }
+      });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") { setMenu(false); }
+      });
+
+      /* Drop-downs: slide open and closed instead of snapping.
+         They still work without this script, just without the slide. */
+      var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      document.querySelectorAll(".drop").forEach(function (drop) {
+        var summary = drop.querySelector("summary");
+        var body = drop.querySelector(".drop-body");
+        var running = null;
+
+        summary.addEventListener("click", function (event) {
+          if (calm || !body.animate) { return; }
+          event.preventDefault();
+          if (running) { running.cancel(); }
+
+          var opening = !drop.open;
+          if (opening) { drop.open = true; }
+
+          var full = body.scrollHeight;
+          var frames = opening
+            ? [{ height: "0px", opacity: 0 }, { height: full + "px", opacity: 1 }]
+            : [{ height: full + "px", opacity: 1 }, { height: "0px", opacity: 0 }];
+
+          running = body.animate(frames, { duration: 320, easing: "ease" });
+          running.onfinish = function () {
+            if (!opening) { drop.open = false; }
+            running = null;
+          };
+          running.oncancel = function () { running = null; };
+        });
+      });
+
+      /* Videos: a frame with a code in data-video shows the video's
+         picture, and plays it in place when clicked. */
+      document.querySelectorAll(".video-frame[data-video]").forEach(function (frame) {
+        var code = (frame.getAttribute("data-video") || "").trim();
+        if (!code) { return; }
+        var title = frame.getAttribute("data-title") || "Video";
+
+        frame.classList.add("has-video");
+        if (!frame.querySelector(".poster")) {
+          frame.style.backgroundImage = "url(https://i.ytimg.com/vi/" + encodeURIComponent(code) + "/hqdefault.jpg)";
+        }
+        frame.setAttribute("role", "button");
+        frame.setAttribute("tabindex", "0");
+        frame.setAttribute("aria-label", "Play video: " + title);
+
+        function play() {
+          if (frame.classList.contains("is-playing")) { return; }
+          var player = document.createElement("iframe");
+          player.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(code) + "?autoplay=1&rel=0";
+          player.title = title;
+          player.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+          player.allowFullscreen = true;
+          frame.classList.add("is-playing");
+          frame.removeAttribute("role");
+          frame.removeAttribute("tabindex");
+          frame.appendChild(player);
+        }
+        frame.addEventListener("click", play);
+        frame.addEventListener("keydown", function (event) {
+          if (event.key === "Enter" || event.key === " ") { event.preventDefault(); play(); }
+        });
+      });
+
+      /* Photos: show the placeholder when the photo file is not there yet */
+      document.querySelectorAll(".photo-slot").forEach(function (slot) {
+        var img = slot.querySelector("img");
+        function missing() { slot.classList.add("no-photo"); }
+        if (!img) { missing(); return; }
+        if (img.complete && img.naturalWidth === 0) { missing(); }
+        img.addEventListener("error", missing);
+        img.addEventListener("load", function () { slot.querySelector(".photo-note").hidden = true; });
+        if (img.complete && img.naturalWidth > 0) { slot.querySelector(".photo-note").hidden = true; }
+      });
+
+      /* Keep the copyright year current */
+      var year = document.getElementById("year");
+      if (year) { year.textContent = new Date().getFullYear(); }
+    })();
+  </script>
+</body>
+</html>

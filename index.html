@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Hillary-Marie | Tap dance artist, visual music maker, storyteller in rhythm</title>
+  <meta name="description" content="Hillary-Marie is an interdisciplinary American tap dance artist, a visual music maker who tells vivid stories through the universal languages of music and dance.">
+
+  <meta property="og:title" content="Hillary-Marie">
+  <meta property="og:description" content="Tap dance artist. Visual music maker. Storyteller in rhythm.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/hero.jpg">
+
+  <!-- HM Branding fonts: Economica for titles, Montserrat for everything else -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Economica:wght@400;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       HM BRANDING
+       Change a color here and it changes everywhere on the page.
+       ========================================================== */
+    :root {
+      --navy: #1D2439;        /* Midnight navy: headings, body text */
+      --coral: #E2553C;       /* Kimono coral: buttons, accents */
+      --coral-dark: #C8432C;  /* Coral, pressed or hovered */
+      --teal: #0B4A47;        /* Headshot teal: section labels */
+      --periwinkle: #8BA3E0;  /* Periwinkle: thin lines, dividers */
+      --apricot: #EBAD7F;     /* Apricot: panels */
+      --white: #F3F1EE;       /* Studio white: page background */
+
+      --title-font: "Economica", "Arial Narrow", "Helvetica Neue Condensed", sans-serif;
+      --body-font: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+
+      --edge: clamp(1.25rem, 4vw, 3rem);          /* space at the page edges */
+      --lines-width: clamp(3rem, 6vw, 5.5rem);    /* the curved lines on the left */
+
+      /* HOME PAGE PHOTO FRAMING
+         The page always shows the photo from head to toe.
+         --crop-top:   how much of the top of the photo to hide (percent).
+                       13 hides the studio lights.
+         --crop-show:  how much of the photo's height to show (percent).
+                       75 runs from just above the head to just below the tap shoes.
+         --photo-ratio: the photo file's width divided by its height.
+                       Update this if you swap in a photo with a different shape. */
+      --crop-top: 13;
+      --crop-show: 75;
+      --photo-ratio: 0.7725;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--white);
+      color: var(--navy);
+      font-family: var(--body-font);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    :focus-visible {
+      outline: 3px solid var(--periwinkle);
+      outline-offset: 3px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      margin: -1px; padding: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ==========================================================
+       BUTTONS
+       ========================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3rem;
+      padding: 0.5rem 1.6rem;
+      border: 2px solid transparent;
+      border-radius: 999px;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      line-height: 1.1;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-coral {
+      background: var(--coral);
+      color: #fff;
+    }
+    .btn-coral:hover { background: var(--coral-dark); }
+
+    .btn-outline {
+      border-color: var(--navy);
+      color: var(--navy);
+    }
+    .btn-outline:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .btn-small {
+      min-height: 2.5rem;
+      padding: 0.35rem 1.25rem;
+      font-size: 1.05rem;
+    }
+
+    /* ==========================================================
+       HEADER (the same on every page)
+       ========================================================== */
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem var(--edge);
+      color: var(--navy);
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .site-header.is-solid {
+      background: var(--white);
+      color: var(--navy);
+      box-shadow: 0 1.5px 0 var(--periwinkle);
+    }
+
+    .wordmark {
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    /* On the home page the name is already huge in the photo,
+       so the small one only appears once you scroll. */
+    .home .site-header:not(.is-solid) .wordmark {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(1rem, 2.5vw, 2.25rem);
+    }
+
+    .site-nav a:not(.btn) {
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      padding: 0.35rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+    .site-nav a:not(.btn):hover,
+    .site-nav a[aria-current="page"] { border-bottom-color: var(--coral); }
+
+    .menu-toggle {
+      display: none;
+      width: 2.75rem;
+      height: 2.75rem;
+      padding: 0;
+      border: 0;
+      background: none;
+      color: inherit;
+      cursor: pointer;
+    }
+    .menu-toggle .bars,
+    .menu-toggle .bars::before,
+    .menu-toggle .bars::after {
+      display: block;
+      width: 1.6rem;
+      height: 2px;
+      margin: 0 auto;
+      background: currentColor;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+    .menu-toggle .bars { position: relative; }
+    .menu-toggle .bars::before,
+    .menu-toggle .bars::after { content: ""; position: absolute; left: 0; }
+    .menu-toggle .bars::before { top: -0.5rem; }
+    .menu-toggle .bars::after { top: 0.5rem; }
+    .menu-toggle[aria-expanded="true"] .bars { background: transparent; }
+    .menu-toggle[aria-expanded="true"] .bars::before { transform: translateY(0.5rem) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] .bars::after { transform: translateY(-0.5rem) rotate(-45deg); }
+
+    @media (max-width: 760px) {
+      .menu-toggle { display: block; position: relative; z-index: 2; }
+
+      .site-nav {
+        position: fixed;
+        inset: 0;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.75rem;
+        background: var(--navy);
+        color: var(--white);
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.25s ease, visibility 0.25s ease;
+      }
+      .site-nav.is-open { visibility: visible; opacity: 1; }
+
+      .site-nav a:not(.btn) {
+        font-family: var(--title-font);
+        font-weight: 700;
+        font-size: 2rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      /* Keep the close button visible on top of the open menu */
+      .site-header.menu-open { color: var(--white); background: transparent; box-shadow: none; }
+      .site-header.menu-open .wordmark { opacity: 0; }
+    }
+
+    /* ==========================================================
+       HERO: photo, name, tagline, buttons
+       Wide screens: the photo stands at full height on the left,
+       head to toe, and fades into studio white. The words sit to
+       the right of Hillary-Marie.
+       Phones and upright tablets: the photo sits on top and the
+       words go underneath.
+       ========================================================== */
+    .hero {
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      align-items: center;
+      min-height: 100vh;
+      min-height: 100svh;
+      overflow: hidden;
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      overflow: hidden;
+    }
+
+    /* The frame is as tall as the screen and exactly as wide as the
+       photo needs to be at that height, so nothing is cut off the
+       top or bottom. */
+    .hero-frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      aspect-ratio: calc(var(--photo-ratio) * 100 / var(--crop-show));
+      transform: translateX(-1.5%);   /* trims a sliver of studio gear off the left edge */
+    }
+
+    .hero-photo {
+      position: absolute;
+      left: 0;
+      top: calc(-100% * var(--crop-top) / var(--crop-show));
+      width: 100%;
+      height: calc(100% * 100 / var(--crop-show));
+      max-width: none;
+      object-fit: cover;
+    }
+
+    /* Fades the right side of the photo into the studio-white page */
+    .hero-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0 -4px 0 0;   /* reaches just past the photo so no edge line shows */
+      background: linear-gradient(to right,
+        rgba(243, 241, 238, 0) 42%,
+        rgba(243, 241, 238, 0.62) 60%,
+        rgba(243, 241, 238, 0.93) 74%,
+        rgba(243, 241, 238, 1) 88%);
+    }
+
+    /* The two thin curved lines from the EPK, down the left edge */
+    .hero-lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: var(--lines-width);
+      height: 100%;
+      overflow: visible;
+    }
+    .hero-lines path {
+      fill: none;
+      stroke-width: 1.5;
+      vector-effect: non-scaling-stroke;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 0;
+    }
+
+    .hero-content {
+      margin-left: max(46%, 50vh);
+      padding: 6rem var(--edge) 3rem 0;
+    }
+
+    .hero-name {
+      margin: 0;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: clamp(2.6rem, 6.5vw, 7.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* Each phrase of the tagline sits on its own line and never splits. */
+    .hero-tagline {
+      margin: clamp(1rem, 2.5vh, 1.5rem) 0 0;
+      font-weight: 600;
+      font-size: clamp(0.72rem, 1.05vw, 0.95rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      line-height: 2;
+      color: var(--teal);
+    }
+    .hero-tagline span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    /* The first button gets its own row. */
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: clamp(1.5rem, 4.5vh, 2.75rem) 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .hero-links li:first-child { flex-basis: 100%; }
+
+    /* The four smaller buttons always sit in two rows of two, so Connect never ends up alone. */
+    .hero-links { display: grid; grid-template-columns: repeat(2, minmax(0, 13.5rem)); }
+    .hero-links li:first-child { grid-column: 1 / -1; }
+    .hero-links .btn { width: 100%; padding-inline: 0.5rem; letter-spacing: 0.09em; white-space: nowrap; }
+
+    /* ---------- Phones and upright tablets: photo on top, words underneath ---------- */
+    @media (max-width: 700px), (max-aspect-ratio: 11/10) {
+      .hero {
+        display: block;
+        min-height: 0;
+      }
+
+      /* Tall enough to show head to toe at a good size,
+         but never so tall that the name is pushed off the screen. */
+      .hero-media {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        height: max(
+          calc(102vw * var(--crop-show) / (var(--photo-ratio) * 100)),
+          min(128vw, 62vh));
+      }
+
+      /* Only the far right edge fades here, which softens the dark
+         curtain on tablets. Phones crop that part out anyway. */
+      .hero-frame::after {
+        background: linear-gradient(to right,
+          rgba(243, 241, 238, 0) 72%,
+          rgba(243, 241, 238, 0.92) 90%,
+          rgba(243, 241, 238, 1) 99%);
+      }
+
+      .hero-content {
+        margin-left: 0;
+        padding: 1.75rem var(--edge) 2.5rem calc(var(--lines-width) + 0.5rem);
+      }
+
+      .hero-name { font-size: clamp(1.9rem, 11.5vw, 4.25rem); }
+      .hero-tagline { font-size: 0.72rem; }
+
+      .hero-links { grid-template-columns: 1fr 1fr; max-width: 28rem; }
+      .hero-links .btn { font-size: clamp(0.92rem, 4.1vw, 1.05rem); }
+    }
+
+    /* One entrance, once: the lines draw down the page and the words settle in. */
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-lines path { animation: draw-line 1.8s ease-out both; }
+      .hero-lines path + path { animation-delay: 0.2s; }
+      .hero-content { animation: settle 0.9s 0.35s ease-out both; }
+
+      @keyframes draw-line {
+        from { stroke-dashoffset: 1; }
+        to { stroke-dashoffset: 0; }
+      }
+      @keyframes settle {
+        from { opacity: 0; transform: translateY(0.75rem); }
+        to { opacity: 1; transform: none; }
+      }
+    }
+
+    /* Shown only if images/hero.jpg is missing */
+    .hero-missing { display: none; }
+    .hero.no-photo .hero-photo { display: none; }
+    .hero.no-photo .hero-frame { background: rgba(235, 173, 127, 0.45); }
+    .hero.no-photo .hero-missing {
+      display: block;
+      position: absolute;
+      top: 5.5rem;
+      left: calc(var(--lines-width) + 0.75rem);
+      margin: 0;
+      padding: 0.5rem 0.9rem;
+      border-left: 5px solid var(--coral);
+      background: rgba(243, 241, 238, 0.7);
+      font-size: 0.8rem;
+    }
+
+    /* ==========================================================
+       FOOTER (the same on every page)
+       ========================================================== */
+    .site-footer {
+      padding: clamp(2.5rem, 6vw, 4rem) var(--edge) 1.5rem;
+      background: var(--white);
+    }
+
+    .footer-columns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem clamp(1.5rem, 5vw, 4rem);
+      max-width: 62rem;
+      margin: 0 auto;
+    }
+
+    .footer-columns > div + div {
+      padding-left: clamp(1.5rem, 5vw, 4rem);
+      border-left: 1.5px solid var(--periwinkle);
+    }
+
+    .footer-heading {
+      margin: 0 0 0.6rem;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--coral);
+    }
+
+    .footer-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+    .footer-list li + li { margin-top: 0.45rem; }
+    .footer-list a { text-decoration: none; border-bottom: 1.5px solid transparent; }
+    .footer-list a:hover { border-bottom-color: var(--coral); }
+
+    .copyright {
+      margin: clamp(2rem, 5vw, 3rem) 0 0;
+      text-align: center;
+      font-size: 0.7rem;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 640px) {
+      .footer-columns { grid-template-columns: 1fr; }
+      .footer-columns > div + div {
+        padding-left: 0;
+        padding-top: 1.5rem;
+        border-left: 0;
+        border-top: 1.5px solid var(--periwinkle);
+      }
+    }
+  </style>
+</head>
+
+<body class="home">
+
+  <!-- ========================================================
+       HEADER
+       ======================================================== -->
+  <header class="site-header" id="site-header">
+    <a class="wordmark" href="index.html">Hillary-Marie</a>
+
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="sr-only">Menu</span>
+      <span class="bars" aria-hidden="true"></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <a href="about.html">The Story</a>
+      <a href="works.html">The Work</a>
+      <a href="press-kit.html">For Presenters</a>
+      <a href="contact.html">Connect</a>
+      <a class="btn btn-coral btn-small" href="contact.html">Book</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ======================================================
+         HERO
+         To change the photo: replace the file images/hero.jpg
+         and update the alt text below to describe the new photo.
+         This layout is framed for a tall photo with the subject on
+         the left. The framing numbers are at the top of the styles
+         (look for HOME PAGE PHOTO FRAMING).
+         ====================================================== -->
+    <section class="hero" id="hero">
+      <div class="hero-media">
+        <div class="hero-frame">
+          <img class="hero-photo" id="hero-photo" src="images/hero.jpg"
+               alt="Hillary-Marie in a photo studio, dressed in black, holding up loops of long black cables with a pair of tap shoes at her feet" fetchpriority="high">
+        </div>
+      </div>
+
+      <svg class="hero-lines" viewBox="0 0 120 1056" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M18,0 C95,280 95,660 4,1056" stroke="#8BA3E0" pathLength="1"/>
+        <path d="M30,0 C108,280 108,660 14,1056" stroke="#E2553C" pathLength="1"/>
+      </svg>
+
+      <div class="hero-content">
+        <h1 class="hero-name">Hillary-Marie</h1>
+        <p class="hero-tagline">
+          <span>Tap dance artist.</span>
+          <span>Visual music maker.</span>
+          <span>Storyteller in rhythm.</span>
+        </p>
+
+        <!-- The home page buttons. Add, remove or reorder the lines below. -->
+        <ul class="hero-links">
+          <li><a class="btn btn-coral" href="works.html#signature-work">In The Pocket</a></li>
+          <li><a class="btn btn-outline" href="about.html">The Story</a></li>
+          <li><a class="btn btn-outline" href="works.html">The Work</a></li>
+          <li><a class="btn btn-outline" href="press-kit.html">For Presenters</a></li>
+          <li><a class="btn btn-outline" href="contact.html">Connect</a></li>
+        </ul>
+      </div>
+
+      <p class="hero-missing">Photo goes here: save it as <strong>images/hero.jpg</strong></p>
+    </section>
+  </main>
+
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+  <footer class="site-footer">
+    <div class="footer-columns">
+      <div>
+        <h2 class="footer-heading">Booking</h2>
+        <ul class="footer-list">
+          <li><a href="contact.html">Booking inquiries</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-heading">Social</h2>
+        <ul class="footer-list">
+          <li><a href="https://www.instagram.com/hillarymarietap" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/hillarymarieofficial" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.youtube.com/hillarymarietap" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-heading">For Presenters</h2>
+        <ul class="footer-list">
+          <li><a href="works.html#signature-work">In The Pocket</a></li>
+          <li><a href="press-kit.html">For Presenters</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="copyright">&copy; <span id="year">2026</span> Hillary-Marie, LLC</p>
+  </footer>
+
+  <script>
+    (function () {
+      var header = document.getElementById("site-header");
+      var toggle = document.getElementById("menu-toggle");
+      var nav = document.getElementById("site-nav");
+      var hero = document.getElementById("hero");
+      var photo = document.getElementById("hero-photo");
+
+      /* Header turns solid once the photo has mostly scrolled away */
+      function updateHeader() {
+        var threshold = hero ? hero.offsetHeight * 0.6 : 40;
+        header.classList.toggle("is-solid", window.scrollY > threshold);
+      }
+      updateHeader();
+      window.addEventListener("scroll", updateHeader, { passive: true });
+      window.addEventListener("resize", updateHeader);
+
+      /* Phone menu */
+      function setMenu(open) {
+        nav.classList.toggle("is-open", open);
+        header.classList.toggle("menu-open", open);
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        document.body.style.overflow = open ? "hidden" : "";
+      }
+      toggle.addEventListener("click", function () {
+        setMenu(toggle.getAttribute("aria-expanded") !== "true");
+      });
+      nav.addEventListener("click", function (event) {
+        if (event.target.closest("a")) { setMenu(false); }
+      });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") { setMenu(false); }
+      });
+
+      /* If the photo file is not there yet, show the placeholder design */
+      function photoMissing() { hero.classList.add("no-photo"); }
+      if (photo) {
+        photo.addEventListener("error", photoMissing);
+        if (photo.complete && photo.naturalWidth === 0) { photoMissing(); }
+      }
+
+      /* Keep the copyright year current */
+      var year = document.getElementById("year");
+      if (year) { year.textContent = new Date().getFullYear(); }
+    })();
+  </script>
+</body>
+</html>

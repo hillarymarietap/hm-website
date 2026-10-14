@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Press Kit | Hillary-Marie</title>
+  <meta name="description" content="Press kit for tap dance artist Hillary-Marie: the EPK, CV, press photos, bios, and press quotes for presenters.">
+
+  <meta property="og:title" content="For Presenters | Hillary-Marie">
+  <meta property="og:description" content="EPK, CV, press photos, bios, and press quotes.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/hero.jpg">
+
+  <!-- HM Branding fonts: Economica for titles, Montserrat for everything else -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Economica:wght@400;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       HM BRANDING
+       Change a color here and it changes everywhere on the page.
+       ========================================================== */
+    :root {
+      --navy: #1D2439;        /* Midnight navy: headings, body text */
+      --coral: #E2553C;       /* Kimono coral: buttons, accents */
+      --coral-dark: #C8432C;  /* Coral, pressed or hovered */
+      --teal: #0B4A47;        /* Headshot teal: section labels */
+      --periwinkle: #8BA3E0;  /* Periwinkle: thin lines, dividers */
+      --apricot: #EBAD7F;     /* Apricot: panels */
+      --white: #F3F1EE;       /* Studio white: page background */
+
+      --title-font: "Economica", "Arial Narrow", "Helvetica Neue Condensed", sans-serif;
+      --body-font: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+
+      --edge: clamp(1.25rem, 4vw, 3rem);          /* space at the page edges */
+      --lines-width: clamp(3rem, 6vw, 5.5rem);    /* the curved lines on the left */
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--white);
+      color: var(--navy);
+      font-family: var(--body-font);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    :focus-visible {
+      outline: 3px solid var(--periwinkle);
+      outline-offset: 3px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      margin: -1px; padding: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ==========================================================
+       BUTTONS
+       ========================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3rem;
+      padding: 0.5rem 1.6rem;
+      border: 2px solid transparent;
+      border-radius: 999px;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      line-height: 1.1;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-coral {
+      background: var(--coral);
+      color: #fff;
+    }
+    .btn-coral:hover { background: var(--coral-dark); }
+
+    .btn-outline {
+      border-color: var(--navy);
+      color: var(--navy);
+    }
+    .btn-outline:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .btn-small {
+      min-height: 2.5rem;
+      padding: 0.35rem 1.25rem;
+      font-size: 1.05rem;
+    }
+
+    /* ==========================================================
+       HEADER (the same on every page)
+       ========================================================== */
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem var(--edge);
+      background: var(--white);
+      color: var(--navy);
+      box-shadow: 0 1.5px 0 var(--periwinkle);
+    }
+
+    .wordmark {
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(1rem, 2.5vw, 2.25rem);
+    }
+
+    .site-nav a:not(.btn) {
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      padding: 0.35rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+    .site-nav a:not(.btn):hover,
+    .site-nav a[aria-current="page"] { border-bottom-color: var(--coral); }
+
+    .menu-toggle {
+      display: none;
+      width: 2.75rem;
+      height: 2.75rem;
+      padding: 0;
+      border: 0;
+      background: none;
+      color: inherit;
+      cursor: pointer;
+    }
+    .menu-toggle .bars,
+    .menu-toggle .bars::before,
+    .menu-toggle .bars::after {
+      display: block;
+      width: 1.6rem;
+      height: 2px;
+      margin: 0 auto;
+      background: currentColor;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+    .menu-toggle .bars { position: relative; }
+    .menu-toggle .bars::before,
+    .menu-toggle .bars::after { content: ""; position: absolute; left: 0; }
+    .menu-toggle .bars::before { top: -0.5rem; }
+    .menu-toggle .bars::after { top: 0.5rem; }
+    .menu-toggle[aria-expanded="true"] .bars { background: transparent; }
+    .menu-toggle[aria-expanded="true"] .bars::before { transform: translateY(0.5rem) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] .bars::after { transform: translateY(-0.5rem) rotate(-45deg); }
+
+    @media (max-width: 760px) {
+      .menu-toggle { display: block; position: relative; z-index: 2; }
+
+      .site-nav {
+        position: fixed;
+        inset: 0;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.75rem;
+        background: var(--navy);
+        color: var(--white);
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.25s ease, visibility 0.25s ease;
+      }
+      .site-nav.is-open { visibility: visible; opacity: 1; }
+
+      .site-nav a:not(.btn) {
+        font-family: var(--title-font);
+        font-weight: 700;
+        font-size: 2rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      /* Keep the close button visible on top of the open menu */
+      .site-header.menu-open { color: var(--white); background: transparent; box-shadow: none; }
+      .site-header.menu-open .wordmark { opacity: 0; }
+    }
+
+    /* ==========================================================
+       PAGE FRAME: the curved lines down the left edge, as in the EPK
+       ========================================================== */
+    .page {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: clamp(6.5rem, 12vw, 9rem) var(--edge) clamp(3rem, 7vw, 5rem) calc(var(--lines-width) + 0.75rem);
+    }
+
+    .page-lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: var(--lines-width);
+      height: 100%;
+      overflow: visible;
+    }
+    .page-lines path {
+      fill: none;
+      stroke-width: 1.5;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .page-inner {
+      max-width: 70rem;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      margin: 0 0 clamp(1.75rem, 4vw, 3rem);
+      font-family: var(--title-font);
+      font-weight: 400;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      line-height: 1;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ==========================================================
+       FOR PRESENTERS
+       ========================================================== */
+    html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+
+    .area {
+      padding: clamp(2.25rem, 5vw, 3.5rem) 0;
+      border-top: 1.5px solid var(--periwinkle);
+    }
+    .area:last-of-type { padding-bottom: 0; }
+
+    .area-title {
+      margin: 0;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: clamp(2rem, 4.5vw, 2.8rem);
+      line-height: 1.1;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+    /* The short coral line under each area title, as in the EPK */
+    .area-title::after {
+      content: "";
+      display: block;
+      width: 6.5rem;
+      height: 2px;
+      margin: 0.9rem 0 clamp(1.5rem, 3vw, 2.25rem);
+      background: var(--coral);
+    }
+
+    /* Small coral headings inside an area */
+    .label {
+      margin: 0 0 0.6rem;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.3rem;
+      line-height: 1.2;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--coral);
+    }
+
+    .area p { margin: 0 0 1.1rem; }
+    .area p:last-child { margin-bottom: 0; }
+    .lede { font-weight: 500; font-size: 1.1rem; line-height: 1.55; }
+    .prose { max-width: 44rem; }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+      gap: clamp(1.75rem, 4vw, 3.5rem);
+      align-items: start;
+    }
+
+    .area-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: clamp(1.75rem, 3.5vw, 2.5rem);
+    }
+
+
+    /* ---------- The drop-downs ---------- */
+    .drops { border-top: 1.5px solid var(--periwinkle); }
+
+    .drop { border-bottom: 1.5px solid var(--periwinkle); }
+
+    .drop summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.1rem 0;
+      cursor: pointer;
+      list-style: none;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: clamp(1.5rem, 3vw, 1.9rem);
+      line-height: 1.15;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+    .drop summary::-webkit-details-marker { display: none; }
+    .drop summary:hover { color: var(--coral); }
+
+    /* The plus sign that turns into a minus when open */
+    .drop-icon {
+      position: relative;
+      flex: none;
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--coral);
+    }
+    .drop-icon::before,
+    .drop-icon::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      margin-top: -1px;
+      background: currentColor;
+      transition: transform 0.25s ease;
+    }
+    .drop-icon::after { transform: rotate(90deg); }
+    .drop[open] .drop-icon::after { transform: rotate(0deg); }
+
+    .drop-body {
+      overflow: hidden;
+      max-width: 44rem;
+      padding: 0 0 1.75rem;
+    }
+    .drop-body p { margin: 0 0 1.1rem; }
+    .drop-body p:last-child { margin-bottom: 0; }
+    .drop-body strong { font-weight: 700; }
+
+
+    .page-title { margin-bottom: clamp(1rem, 2.5vw, 1.5rem); }
+    .page-lede {
+      max-width: 40rem;
+      margin: 0 0 clamp(2.5rem, 6vw, 4rem);
+      font-weight: 500;
+      font-size: 1.1rem;
+      line-height: 1.55;
+    }
+    .area:first-of-type { border-top: 0; padding-top: 0; }
+
+    /* ---------- Performance highlights video ---------- */
+    .play {
+      display: grid;
+      place-items: center;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      background: var(--coral);
+    }
+    /* The trailer frame. When the trailer exists, the note in the
+       HTML below says how to put it here. */
+    .video-frame {
+      position: relative;
+      display: grid;
+      place-items: center;
+      aspect-ratio: 16 / 9;
+      border: 5px solid var(--coral);
+      background: var(--navy);
+      color: var(--white);
+      text-decoration: none;
+    }
+    .video-frame iframe { position: absolute; inset: 0; z-index: 3; width: 100%; height: 100%; border: 0; }
+    /* A photo used as the cover of a video frame */
+    .video-frame .poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .video-frame .play,
+    .video-frame .video-note { position: relative; z-index: 2; }
+    .video-frame .video-note { position: absolute; }
+    .video-frame:has(.poster)::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      z-index: 1;
+      height: 35%;
+      background: linear-gradient(to top, rgba(29, 36, 57, 0.75), rgba(29, 36, 57, 0));
+    }
+    /* Once a video code is filled in, the frame shows its picture */
+    /* Finished thumbnails already carry their own shading */
+    .video-frame.thumb::after { content: none; }
+    .video-frame.has-video {
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+    }
+    .video-frame.has-video .video-note { display: none; }
+    .video-frame.is-playing .play { display: none; }
+
+    .collab-lede { margin-bottom: clamp(1.5rem, 3vw, 2.25rem) !important; }
+
+    /* Two videos side by side; stacked on phones */
+    .video-pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(1.25rem, 3vw, 2.5rem);
+    }
+    .video-item { margin: 0; }
+    .video-item figcaption {
+      margin-top: 0.75rem;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: 0.06em;
+      color: var(--navy);
+    }
+    @media (max-width: 760px) {
+      .video-pair { grid-template-columns: 1fr; }
+    }
+
+    /* One large video above a list */
+    .feature-video { max-width: 52rem; }
+
+    /* A framed photo. Shows a placeholder until the photo file exists. */
+    .photo-slot {
+      position: relative;
+      display: grid;
+      place-items: center;
+      aspect-ratio: 4 / 5;
+      border: 5px solid var(--coral);
+      background: rgba(235, 173, 127, 0.45);
+      overflow: hidden;
+    }
+    .play::before {
+      content: "";
+      margin-left: 0.3rem;
+      border-style: solid;
+      border-width: 0.7rem 0 0.7rem 1.1rem;
+      border-color: transparent transparent transparent var(--white);
+    }
+    .video-note {
+      position: absolute;
+      left: 0; right: 0; bottom: 0.9rem;
+      text-align: center;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* ---------- Downloads: three cards ---------- */
+    .downloads {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    .download { display: flex; flex-direction: column; }
+
+    /* The cover of each download, in the coral frame */
+    .cover {
+      display: block;
+      aspect-ratio: 464 / 600;
+      border: 5px solid var(--coral);
+      background: #fff;
+      overflow: hidden;
+    }
+    .cover img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.4s ease; }
+    .cover:hover img { transform: scale(1.03); }
+
+    .download h3 {
+      margin: 1.1rem 0 0.2rem;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.6rem;
+      line-height: 1.15;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .download .meta { margin: 0 0 1rem; font-size: 0.9rem; opacity: 0.8; }
+    .download .btn { align-self: flex-start; margin-top: auto; }
+
+    /* ---------- Press ---------- */
+    /* Apricot quote panel with the coral bar, as in the EPK */
+    .quote {
+      margin: 0;
+      padding: 1.4rem 1.4rem 1.4rem 1.6rem;
+      border-left: 5px solid var(--coral);
+      background: rgba(235, 173, 127, 0.45);
+      font-weight: 500;
+    }
+    .quote p { margin: 0 0 0.75rem; }
+    .quote cite { font-style: normal; font-weight: 600; font-size: 0.9rem; }
+    .quotes {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(1rem, 2.5vw, 1.5rem);
+    }
+    .quotes .quote { display: flex; flex-direction: column; justify-content: space-between; }
+    .quotes .quote p { font-size: 1.05rem; }
+    .quotes .quote.big p {
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      line-height: 1.15;
+      letter-spacing: 0.06em;
+    }
+
+    .seen-in { margin-top: clamp(2rem, 4vw, 3rem); }
+    .seen-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 2.25rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .seen-also { margin-top: 0.9rem !important; font-size: 0.95rem; }
+
+    /* ---------- Bios ---------- */
+    .bio-tools { margin: 1.25rem 0 0; }
+    .copy-btn { min-height: 2.25rem; padding: 0.3rem 1.1rem; font-size: 0.95rem; }
+    .bio-text { max-width: 46rem; }
+
+    /* ---------- Closing band ---------- */
+    .closing {
+      margin-top: clamp(2.5rem, 6vw, 4rem);
+      padding: clamp(1.75rem, 4vw, 2.75rem);
+      background: var(--navy);
+      color: var(--white);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem 2rem;
+    }
+    .closing h2 {
+      margin: 0;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      line-height: 1.1;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .closing .btn-outline { border-color: var(--white); color: var(--white); }
+    .closing .btn-outline:hover { background: var(--white); color: var(--navy); }
+    .closing-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+    @media (max-width: 860px) {
+      .downloads { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .quotes { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .downloads { grid-template-columns: 1fr; max-width: 20rem; }
+    }
+
+    /* ==========================================================
+       FOOTER (the same on every page)
+       ========================================================== */
+    .site-footer {
+      padding: clamp(2.5rem, 6vw, 4rem) var(--edge) 1.5rem;
+      background: var(--white);
+      border-top: 1.5px solid var(--periwinkle);
+    }
+
+    .footer-columns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem clamp(1.5rem, 5vw, 4rem);
+      max-width: 62rem;
+      margin: 0 auto;
+    }
+
+    .footer-columns > div + div {
+      padding-left: clamp(1.5rem, 5vw, 4rem);
+      border-left: 1.5px solid var(--periwinkle);
+    }
+
+    .footer-heading {
+      margin: 0 0 0.6rem;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--coral);
+    }
+
+    .footer-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+    .footer-list li + li { margin-top: 0.45rem; }
+    .footer-list a { text-decoration: none; border-bottom: 1.5px solid transparent; }
+    .footer-list a:hover { border-bottom-color: var(--coral); }
+
+    .copyright {
+      margin: clamp(2rem, 5vw, 3rem) 0 0;
+      text-align: center;
+      font-size: 0.7rem;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 640px) {
+      .footer-columns { grid-template-columns: 1fr; }
+      .footer-columns > div + div {
+        padding-left: 0;
+        padding-top: 1.5rem;
+        border-left: 0;
+        border-top: 1.5px solid var(--periwinkle);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========================================================
+       HEADER
+       ======================================================== -->
+  <header class="site-header" id="site-header">
+    <a class="wordmark" href="index.html">Hillary-Marie</a>
+
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="sr-only">Menu</span>
+      <span class="bars" aria-hidden="true"></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <a href="about.html">The Story</a>
+      <a href="works.html">The Work</a>
+      <a href="press-kit.html" aria-current="page">For Presenters</a>
+      <a href="contact.html">Connect</a>
+      <a class="btn btn-coral btn-small" href="contact.html">Book</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <svg class="page-lines" viewBox="0 0 120 1056" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M18,0 C95,280 95,660 4,1056" stroke="#8BA3E0"/>
+      <path d="M30,0 C108,280 108,660 14,1056" stroke="#E2553C"/>
+    </svg>
+
+    <div class="page-inner">
+      <h1 class="page-title">For Presenters</h1>
+      <p class="page-lede">The press kit, CV, photos, and bios, all in one place.</p>
+
+      <!-- ====================================================
+           PERFORMANCE HIGHLIGHTS
+           When the reel is on YouTube, copy the code after "v="
+           in its address (in youtube.com/watch?v=abc123XYZ the
+           code is abc123XYZ) and paste it between the quotes of
+           data-video="" below.
+           ==================================================== -->
+      <section class="area" id="highlights" aria-labelledby="highlights-title">
+        <h2 class="area-title" id="highlights-title">Watch</h2>
+        <div class="video-pair">
+          <figure class="video-item">
+            <div class="video-frame thumb" data-video="nOMQSTlTIfg" data-title="Hillary-Marie performance highlights">
+              <img class="poster" src="images/highlights-performance.jpg" alt="">
+              <span class="play" aria-hidden="true"></span>
+              <span class="video-note">Video coming soon</span>
+            </div>
+            <figcaption>Performance Highlights</figcaption>
+          </figure>
+          <!-- COLLABORATION HIGHLIGHTS: paste the YouTube code between the quotes of data-video="" -->
+          <figure class="video-item">
+            <div class="video-frame thumb" data-video="3AAgTlSP59Y" data-title="Hillary-Marie collaboration highlights">
+              <img class="poster" src="images/highlights-collaboration.jpg" alt="">
+              <span class="play" aria-hidden="true"></span>
+              <span class="video-note">Video coming soon</span>
+            </div>
+            <figcaption>Collaboration Highlights</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ====================================================
+           DOWNLOADS
+           FILES TO ADD: put the EPK and CV PDFs in a folder called
+           "files" as hillary-marie-epk.pdf and hillary-marie-cv.pdf.
+           ==================================================== -->
+      <section class="area" id="downloads" aria-labelledby="downloads-title">
+        <h2 class="area-title" id="downloads-title">Downloads</h2>
+
+        <div class="downloads">
+          <div class="download">
+            <a class="cover" href="files/hillary-marie-epk.pdf" aria-label="Electronic Press Kit">
+              <img src="images/cover-epk.png" alt="Cover page of Hillary-Marie's Electronic Press Kit">
+            </a>
+            <h3>Electronic Press Kit</h3>
+            <p class="meta">PDF, 7 pages</p>
+            <a class="btn btn-coral btn-small" href="files/hillary-marie-epk.pdf" download>Download EPK</a>
+          </div>
+
+          <div class="download">
+            <a class="cover" href="files/hillary-marie-cv.pdf" aria-label="CV">
+              <img src="images/cover-cv.png" alt="First page of Hillary-Marie's CV">
+            </a>
+            <h3>CV</h3>
+            <p class="meta">PDF, 2 pages</p>
+            <a class="btn btn-coral btn-small" href="files/hillary-marie-cv.pdf" download>Download CV</a>
+          </div>
+
+          <div class="download">
+            <a class="cover" href="https://drive.google.com/drive/folders/1kpyQhc-JbnwKb6heVkfvHVgKFp8Zqeml?usp=sharing" target="_blank" rel="noopener" aria-label="Press photos">
+              <img src="images/about.jpg" alt="Hillary-Marie in navy on a wooden tap board, leaning back with one arm reaching up">
+            </a>
+            <h3>Press Photos</h3>
+            <p class="meta">High-resolution photos with photo credits</p>
+            <a class="btn btn-coral btn-small" href="https://drive.google.com/drive/folders/1kpyQhc-JbnwKb6heVkfvHVgKFp8Zqeml?usp=sharing" target="_blank" rel="noopener">Download Photos</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================
+           PRESS
+           ==================================================== -->
+      <section class="area" id="press" aria-labelledby="press-title">
+        <h2 class="area-title" id="press-title">Press</h2>
+
+        <div class="quotes">
+          <blockquote class="quote big">
+            <p>&ldquo;A brilliant tap artist&rdquo;</p>
+            <cite>The Patch</cite>
+          </blockquote>
+          <blockquote class="quote big">
+            <p>&ldquo;Feet like feathers with steel bones.&rdquo;</p>
+            <cite>Carl Schlessinger</cite>
+          </blockquote>
+          <blockquote class="quote">
+            <p>&ldquo;A rosy bubble that floats off the stage and envelops the crowd, allowing grateful viewers to forget where they are.&rdquo;</p>
+            <cite>Robert Johnson, dance critic, on <em>Soul Walk</em></cite>
+          </blockquote>
+          <blockquote class="quote">
+            <p>&ldquo;A springboard for locating tap dance within a concert dance context... serving to truly bring the house down.&rdquo;</p>
+            <cite>Dance Metro DC, on <em>VIBE</em></cite>
+          </blockquote>
+        </div>
+
+        <div class="seen-in">
+          <h3 class="label">As seen in</h3>
+          <ul class="seen-list">
+            <li>The New York Times</li>
+            <li>Dance Magazine</li>
+            <li>Dance Spirit</li>
+            <li>Dance Studio Life</li>
+            <li>Playbill</li>
+            <li>Broadway World</li>
+            <li>Dance Teacher Magazine</li>
+            <li>The Star-Ledger</li>
+            <li>Dance Informa</li>
+            <li>Inside New York City Dance</li>
+            <li>New Jersey Stage</li>
+            <li>Inside Essex</li>
+            <li>Culturebot</li>
+            <li>NJArts.net</li>
+            <li>The Patch</li>
+            <li>Bernardsville News</li>
+            <li>Female Run</li>
+            <li>The Dance Enthusiast</li>
+          </ul>
+          <p class="seen-also">Also featured on TEDxRutgers, NBC&rsquo;s 30 Rock and The Colbert Report.</p>
+        </div>
+      </section>
+
+      <!-- ====================================================
+           BIOS: ready to copy into a program or press release
+           ==================================================== -->
+      <section class="area" id="bios" aria-labelledby="bios-title">
+        <h2 class="area-title" id="bios-title">Bios</h2>
+
+        <div class="drops">
+          <details class="drop" open>
+            <summary>Short Bio <span class="drop-icon" aria-hidden="true"></span></summary>
+            <div class="drop-body">
+              <div class="bio-text" id="bio-short">
+                  <p>Hillary-Marie is an interdisciplinary American tap dance artist, a visual music maker who tells vivid stories through the universal languages of music and dance.</p>
+                  <p>Her unique multi-modal voice blends foot, body, and vocal percussion with compelling storytelling to craft immersive rhythmic experiences that transcend traditional boundaries of performance art.</p>
+                  <p>A recipient of multiple Fellowships and Awards from the New Jersey State Council on the Arts and the Mid-Atlantic Arts Foundation, Hillary-Marie is the creator and performer of In The Pocket, her award-winning one-woman show, developed at NJPAC and now touring. Internationally acclaimed as a soloist and collaborator, she has performed alongside music greats like Take 6, Big Bad VooDoo Daddy, and Wycliffe Gordon.</p>
+                  <p>As the founder of iTapOnline.com, she is widely regarded as a teacher of teachers, training hundreds of students and educators annually in The 5 Fundamentals of Tap Dance and The Fundamental Fusion Approach.</p>
+              </div>
+              <div class="bio-tools"><button class="btn btn-outline copy-btn" type="button" data-copy="bio-short">Copy bio</button></div>
+            </div>
+          </details>
+
+          <details class="drop">
+            <summary>Long Bio <span class="drop-icon" aria-hidden="true"></span></summary>
+            <div class="drop-body">
+              <div class="bio-text" id="bio-long">
+                  <p>Hillary-Marie is an interdisciplinary American tap dance artist, a visual music maker who tells vivid stories through the universal languages of music and dance. Her unique multi-modal voice blends foot, body, and vocal percussion with compelling storytelling to craft immersive rhythmic experiences that transcend traditional boundaries of performance art. Her dancing has been described as having &ldquo;feet like feathers with steel bones,&rdquo; a testament to her combination of strength and grace.</p>
+                  <p>She has captivated audiences as both an internationally acclaimed soloist and a sought-after collaborator, sharing the stage with music greats including Grammy Award-winning a cappella group Take 6, Grammy-nominated group Big Bad VooDoo Daddy, trombone legend Wycliffe Gordon, Luther Vandross' music director Nat Adderley Jr., and A Chorus Line composer Marvin Hamlisch. Her collaborations also span vocalists Emily Braden and Nancy Harmes, bassist Jennifer Vincent, singer-songwriter Ami Madeleine, pianists Mark G. Meadows and Willerm Delisfort, percussionist Vincent Pierce Smith, and beatboxer Mark Martin.</p>
+                  <p>Her work has been recognized with multiple Fellowships and Awards from the New Jersey State Council on the Arts and the Mid-Atlantic Arts Foundation, in Choreography (2017 award recipient, 2023 funded finalist) and Interdisciplinary Arts (2024 award recipient). From 2019 to 2022, she held a fellowship at NJPAC, where she developed her award-winning and touring one-woman show, In The Pocket.</p>
+                  <p>Beyond the stage, Hillary-Marie is the founder and creator of iTapOnline.com, the go-to resource for tap dancers and teachers worldwide, and is widely regarded as a teacher of teachers. Mentored by and an assistant to Vaudeville legend Dr. Harold &ldquo;Stumpy&rdquo; Cromer from 2007 until his passing in 2013, she is committed to preserving the oral tradition of tap dance, ensuring its vibrancy for future generations. Her iTap Teacher Certificate Program and iTapOnline Studio train hundreds of educators annually in her signature methodology, The 5 Fundamentals of Tap Dance and The Fundamental Fusion Approach.</p>
+              </div>
+              <div class="bio-tools"><button class="btn btn-outline copy-btn" type="button" data-copy="bio-long">Copy bio</button></div>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- ====================================================
+           CLOSING BAND
+           ==================================================== -->
+      <div class="closing">
+        <h2>Bring Hillary-Marie to your stage or studio</h2>
+        <div class="closing-actions">
+          <a class="btn btn-coral" href="contact.html?about=performance">Book</a>
+          <a class="btn btn-outline" href="works.html">See the work</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+  <footer class="site-footer">
+    <div class="footer-columns">
+      <div>
+        <h2 class="footer-heading">Booking</h2>
+        <ul class="footer-list">
+          <li><a href="contact.html">Booking inquiries</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-heading">Social</h2>
+        <ul class="footer-list">
+          <li><a href="https://www.instagram.com/hillarymarietap" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/hillarymarieofficial" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.youtube.com/hillarymarietap" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-heading">For Presenters</h2>
+        <ul class="footer-list">
+          <li><a href="works.html#signature-work">In The Pocket</a></li>
+          <li><a href="press-kit.html">For Presenters</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="copyright">&copy; <span id="year">2026</span> Hillary-Marie, LLC</p>
+  </footer>
+
+  <script>
+    (function () {
+      var header = document.getElementById("site-header");
+      var toggle = document.getElementById("menu-toggle");
+      var nav = document.getElementById("site-nav");
+
+      /* Phone menu */
+      function setMenu(open) {
+        nav.classList.toggle("is-open", open);
+        header.classList.toggle("menu-open", open);
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        document.body.style.overflow = open ? "hidden" : "";
+      }
+      toggle.addEventListener("click", function () {
+        setMenu(toggle.getAttribute("aria-expanded") !== "true");
+      });
+      nav.addEventListener("click", function (event) {
+        if (event.target.closest("a")) { setMenu(false); }
+      });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") { setMenu(false); }
+      });
+
+      /* Drop-downs: slide open and closed instead of snapping.
+         They still work without this script, just without the slide. */
+      var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      document.querySelectorAll(".drop").forEach(function (drop) {
+        var summary = drop.querySelector("summary");
+        var body = drop.querySelector(".drop-body");
+        var running = null;
+
+        summary.addEventListener("click", function (event) {
+          if (calm || !body.animate) { return; }
+          event.preventDefault();
+          if (running) { running.cancel(); }
+
+          var opening = !drop.open;
+          if (opening) { drop.open = true; }
+
+          var full = body.scrollHeight;
+          var frames = opening
+            ? [{ height: "0px", opacity: 0 }, { height: full + "px", opacity: 1 }]
+            : [{ height: full + "px", opacity: 1 }, { height: "0px", opacity: 0 }];
+
+          running = body.animate(frames, { duration: 320, easing: "ease" });
+          running.onfinish = function () {
+            if (!opening) { drop.open = false; }
+            running = null;
+          };
+          running.oncancel = function () { running = null; };
+        });
+      });
+
+      /* Videos: a frame with a code in data-video shows the video's
+         picture, and plays it in place when clicked. */
+      document.querySelectorAll(".video-frame[data-video]").forEach(function (frame) {
+        var code = (frame.getAttribute("data-video") || "").trim();
+        if (!code) { return; }
+        var title = frame.getAttribute("data-title") || "Video";
+
+        frame.classList.add("has-video");
+        if (!frame.querySelector(".poster")) {
+          frame.style.backgroundImage = "url(https://i.ytimg.com/vi/" + encodeURIComponent(code) + "/hqdefault.jpg)";
+        }
+        frame.setAttribute("role", "button");
+        frame.setAttribute("tabindex", "0");
+        frame.setAttribute("aria-label", "Play video: " + title);
+
+        function play() {
+          if (frame.classList.contains("is-playing")) { return; }
+          var player = document.createElement("iframe");
+          player.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(code) + "?autoplay=1&rel=0";
+          player.title = title;
+          player.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+          player.allowFullscreen = true;
+          frame.classList.add("is-playing");
+          frame.removeAttribute("role");
+          frame.removeAttribute("tabindex");
+          frame.appendChild(player);
+        }
+        frame.addEventListener("click", play);
+        frame.addEventListener("keydown", function (event) {
+          if (event.key === "Enter" || event.key === " ") { event.preventDefault(); play(); }
+        });
+      });
+
+      /* Photos: show the placeholder when the photo file is not there yet */
+      document.querySelectorAll(".photo-slot").forEach(function (slot) {
+        var img = slot.querySelector("img");
+        function missing() { slot.classList.add("no-photo"); }
+        if (!img) { missing(); return; }
+        if (img.complete && img.naturalWidth === 0) { missing(); }
+        img.addEventListener("error", missing);
+        img.addEventListener("load", function () { slot.querySelector(".photo-note").hidden = true; });
+        if (img.complete && img.naturalWidth > 0) { slot.querySelector(".photo-note").hidden = true; }
+      });
+
+      /* Copy a bio to the clipboard */
+      document.querySelectorAll("[data-copy]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          var source = document.getElementById(button.getAttribute("data-copy"));
+          var text = Array.prototype.map.call(source.querySelectorAll("p"), function (p) {
+            return p.textContent.trim();
+          }).join("\n\n");
+          function done(ok) {
+            button.textContent = ok ? "Copied" : "Select and copy";
+            setTimeout(function () { button.textContent = "Copy bio"; }, 2000);
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+          } else { done(false); }
+        });
+      });
+
+      /* Links not added yet: stop them jumping to the top of the page */
+      document.querySelectorAll('a[href="#"]').forEach(function (link) {
+        link.addEventListener("click", function (event) { event.preventDefault(); });
+      });
+
+      /* Keep the copyright year current */
+      var year = document.getElementById("year");
+      if (year) { year.textContent = new Date().getFullYear(); }
+    })();
+  </script>
+</body>
+</html>

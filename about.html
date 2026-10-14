@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>About | Hillary-Marie</title>
+  <meta name="description" content="Hillary-Marie is an interdisciplinary American tap dance artist, a visual music maker who tells vivid stories through the universal languages of music and dance.">
+
+  <meta property="og:title" content="About Hillary-Marie">
+  <meta property="og:description" content="Tap dance artist. Visual music maker. Storyteller in rhythm.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/hero.jpg">
+
+  <!-- HM Branding fonts: Economica for titles, Montserrat for everything else -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Economica:wght@400;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       HM BRANDING
+       Change a color here and it changes everywhere on the page.
+       ========================================================== */
+    :root {
+      --navy: #1D2439;        /* Midnight navy: headings, body text */
+      --coral: #E2553C;       /* Kimono coral: buttons, accents */
+      --coral-dark: #C8432C;  /* Coral, pressed or hovered */
+      --teal: #0B4A47;        /* Headshot teal: section labels */
+      --periwinkle: #8BA3E0;  /* Periwinkle: thin lines, dividers */
+      --apricot: #EBAD7F;     /* Apricot: panels */
+      --white: #F3F1EE;       /* Studio white: page background */
+
+      --title-font: "Economica", "Arial Narrow", "Helvetica Neue Condensed", sans-serif;
+      --body-font: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+
+      --edge: clamp(1.25rem, 4vw, 3rem);          /* space at the page edges */
+      --lines-width: clamp(3rem, 6vw, 5.5rem);    /* the curved lines on the left */
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--white);
+      color: var(--navy);
+      font-family: var(--body-font);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    :focus-visible {
+      outline: 3px solid var(--periwinkle);
+      outline-offset: 3px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      margin: -1px; padding: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ==========================================================
+       BUTTONS
+       ========================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3rem;
+      padding: 0.5rem 1.6rem;
+      border: 2px solid transparent;
+      border-radius: 999px;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      line-height: 1.1;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-coral {
+      background: var(--coral);
+      color: #fff;
+    }
+    .btn-coral:hover { background: var(--coral-dark); }
+
+    .btn-outline {
+      border-color: var(--navy);
+      color: var(--navy);
+    }
+    .btn-outline:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .btn-small {
+      min-height: 2.5rem;
+      padding: 0.35rem 1.25rem;
+      font-size: 1.05rem;
+    }
+
+    /* ==========================================================
+       HEADER (the same on every page)
+       ========================================================== */
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem var(--edge);
+      background: var(--white);
+      color: var(--navy);
+      box-shadow: 0 1.5px 0 var(--periwinkle);
+    }
+
+    .wordmark {
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(1rem, 2.5vw, 2.25rem);
+    }
+
+    .site-nav a:not(.btn) {
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      padding: 0.35rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+    .site-nav a:not(.btn):hover,
+    .site-nav a[aria-current="page"] { border-bottom-color: var(--coral); }
+
+    .menu-toggle {
+      display: none;
+      width: 2.75rem;
+      height: 2.75rem;
+      padding: 0;
+      border: 0;
+      background: none;
+      color: inherit;
+      cursor: pointer;
+    }
+    .menu-toggle .bars,
+    .menu-toggle .bars::before,
+    .menu-toggle .bars::after {
+      display: block;
+      width: 1.6rem;
+      height: 2px;
+      margin: 0 auto;
+      background: currentColor;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+    .menu-toggle .bars { position: relative; }
+    .menu-toggle .bars::before,
+    .menu-toggle .bars::after { content: ""; position: absolute; left: 0; }
+    .menu-toggle .bars::before { top: -0.5rem; }
+    .menu-toggle .bars::after { top: 0.5rem; }
+    .menu-toggle[aria-expanded="true"] .bars { background: transparent; }
+    .menu-toggle[aria-expanded="true"] .bars::before { transform: translateY(0.5rem) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] .bars::after { transform: translateY(-0.5rem) rotate(-45deg); }
+
+    @media (max-width: 760px) {
+      .menu-toggle { display: block; position: relative; z-index: 2; }
+
+      .site-nav {
+        position: fixed;
+        inset: 0;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.75rem;
+        background: var(--navy);
+        color: var(--white);
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.25s ease, visibility 0.25s ease;
+      }
+      .site-nav.is-open { visibility: visible; opacity: 1; }
+
+      .site-nav a:not(.btn) {
+        font-family: var(--title-font);
+        font-weight: 700;
+        font-size: 2rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      /* Keep the close button visible on top of the open menu */
+      .site-header.menu-open { color: var(--white); background: transparent; box-shadow: none; }
+      .site-header.menu-open .wordmark { opacity: 0; }
+    }
+
+    /* ==========================================================
+       PAGE FRAME: the curved lines down the left edge, as in the EPK
+       ========================================================== */
+    .page {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: clamp(6.5rem, 12vw, 9rem) var(--edge) clamp(3rem, 7vw, 5rem) calc(var(--lines-width) + 0.75rem);
+    }
+
+    .page-lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: var(--lines-width);
+      height: 100%;
+      overflow: visible;
+    }
+    .page-lines path {
+      fill: none;
+      stroke-width: 1.5;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .page-inner {
+      max-width: 70rem;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      margin: 0 0 clamp(1.75rem, 4vw, 3rem);
+      font-family: var(--title-font);
+      font-weight: 400;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      line-height: 1;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ==========================================================
+       ABOUT: photo and quote on the left, drop-downs on the right
+       ========================================================== */
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+      gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: start;
+    }
+
+    .about-aside {
+      position: sticky;
+      top: 6rem;
+    }
+
+    .about-photo {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 5 / 6;   /* matches the photo, so nothing is cropped */
+      object-fit: cover;
+      border: 5px solid var(--coral);
+    }
+
+    /* Apricot quote panel with the coral bar, as in the EPK */
+    .pull-quote {
+      margin: 1.5rem 0 0;
+      padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+      border-left: 5px solid var(--coral);
+      background: rgba(235, 173, 127, 0.45);
+      font-weight: 500;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    .pull-quote p { margin: 0; }
+
+    /* ---------- The drop-downs ---------- */
+    .drops { border-top: 1.5px solid var(--periwinkle); }
+
+    .drop { border-bottom: 1.5px solid var(--periwinkle); }
+
+    .drop summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.1rem 0;
+      cursor: pointer;
+      list-style: none;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: clamp(1.5rem, 3vw, 1.9rem);
+      line-height: 1.15;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+    .drop summary::-webkit-details-marker { display: none; }
+    .drop summary:hover { color: var(--coral); }
+
+    /* The plus sign that turns into a minus when open */
+    .drop-icon {
+      position: relative;
+      flex: none;
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--coral);
+    }
+    .drop-icon::before,
+    .drop-icon::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      margin-top: -1px;
+      background: currentColor;
+      transition: transform 0.25s ease;
+    }
+    .drop-icon::after { transform: rotate(90deg); }
+    .drop[open] .drop-icon::after { transform: rotate(0deg); }
+
+    .drop-body {
+      overflow: hidden;
+      max-width: 44rem;
+      padding: 0 0 1.75rem;
+    }
+    .drop-body p { margin: 0 0 1.1rem; }
+    .drop-body p:last-child { margin-bottom: 0; }
+    .drop-body strong { font-weight: 700; }
+
+    /* The Fun Stuff: one short line per row */
+    .fun-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-weight: 500;
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+    .fun-list li { padding: 0.3rem 0; }
+
+    /* Marks a section that is still waiting for its write-up */
+    .to-come {
+      padding: 0.75rem 1rem;
+      border-left: 5px solid var(--apricot);
+      background: rgba(235, 173, 127, 0.2);
+      font-style: italic;
+    }
+
+    .about-next {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: clamp(2rem, 4vw, 3rem);
+    }
+
+    @media (max-width: 860px) {
+      .about-layout { grid-template-columns: 1fr; }
+      .about-aside {
+        position: static;
+        display: grid;
+        grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+        gap: 1.25rem;
+        align-items: end;
+      }
+      .pull-quote { margin-top: 0; }
+    }
+
+    @media (max-width: 520px) {
+      .about-aside { grid-template-columns: 1fr; }
+      .about-photo { max-width: 16rem; }
+    }
+
+    /* ==========================================================
+       FOOTER (the same on every page)
+       ========================================================== */
+    .site-footer {
+      padding: clamp(2.5rem, 6vw, 4rem) var(--edge) 1.5rem;
+      background: var(--white);
+      border-top: 1.5px solid var(--periwinkle);
+    }
+
+    .footer-columns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem clamp(1.5rem, 5vw, 4rem);
+      max-width: 62rem;
+      margin: 0 auto;
+    }
+
+    .footer-columns > div + div {
+      padding-left: clamp(1.5rem, 5vw, 4rem);
+      border-left: 1.5px solid var(--periwinkle);
+    }
+
+    .footer-heading {
+      margin: 0 0 0.6rem;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--coral);
+    }
+
+    .footer-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+    .footer-list li + li { margin-top: 0.45rem; }
+    .footer-list a { text-decoration: none; border-bottom: 1.5px solid transparent; }
+    .footer-list a:hover { border-bottom-color: var(--coral); }
+
+    .copyright {
+      margin: clamp(2rem, 5vw, 3rem) 0 0;
+      text-align: center;
+      font-size: 0.7rem;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 640px) {
+      .footer-columns { grid-template-columns: 1fr; }
+      .footer-columns > div + div {
+        padding-left: 0;
+        padding-top: 1.5rem;
+        border-left: 0;
+        border-top: 1.5px solid var(--periwinkle);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========================================================
+       HEADER
+       ======================================================== -->
+  <header class="site-header" id="site-header">
+    <a class="wordmark" href="index.html">Hillary-Marie</a>
+
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="sr-only">Menu</span>
+      <span class="bars" aria-hidden="true"></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <a href="about.html" aria-current="page">The Story</a>
+      <a href="works.html">The Work</a>
+      <a href="press-kit.html">For Presenters</a>
+      <a href="contact.html">Connect</a>
+      <a class="btn btn-coral btn-small" href="contact.html">Book</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <svg class="page-lines" viewBox="0 0 120 1056" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M18,0 C95,280 95,660 4,1056" stroke="#8BA3E0"/>
+      <path d="M30,0 C108,280 108,660 14,1056" stroke="#E2553C"/>
+    </svg>
+
+    <div class="page-inner">
+      <h1 class="page-title">The Story</h1>
+
+      <div class="about-layout">
+
+        <!-- ==================================================
+             LEFT SIDE: photo and quote
+             To change the photo: replace the file images/about.jpg
+             and update the alt text below.
+             ================================================== -->
+        <aside class="about-aside">
+          <img class="about-photo" src="images/about.jpg"
+               alt="Hillary-Marie in a navy outfit and black tap shoes on a wooden tap board, leaning back with one arm reaching up and her hair flying">
+
+          <blockquote class="pull-quote">
+            <p>&ldquo;This is my offering: a space where sound, movement, and storytelling are completely intertwined.&rdquo;</p>
+          </blockquote>
+        </aside>
+
+        <!-- ==================================================
+             RIGHT SIDE: the drop-downs
+             Each drop-down is one <details> block.
+             The word "open" on the first one makes it start open.
+             ================================================== -->
+        <div>
+          <div class="drops">
+
+            <!-- ---------- SHORT BIO ---------- -->
+            <details class="drop" open>
+              <summary>Short Bio <span class="drop-icon" aria-hidden="true"></span></summary>
+              <div class="drop-body">
+                <p>Hillary-Marie is an <strong>interdisciplinary American tap dance artist</strong>, a visual music maker who tells vivid stories through the universal languages of music and dance. Her unique <strong>multi-modal voice blends foot, body, and vocal percussion</strong> with compelling storytelling to craft immersive rhythmic experiences that transcend traditional boundaries of performance art. Her dancing has been described as having <strong><em>&ldquo;feet like feathers with steel bones,&rdquo;</em></strong> a testament to her combination of strength and grace.</p>
+
+                <p>She has captivated audiences as both an internationally acclaimed soloist and a sought-after collaborator, sharing the stage with music greats including Grammy Award-winning a cappella group <strong>Take 6</strong>, Grammy-nominated group <strong>Big Bad VooDoo Daddy</strong>, trombone legend <strong>Wycliffe Gordon</strong>, Luther Vandross' music director <strong>Nat Adderley Jr.</strong>, and A Chorus Line composer <strong>Marvin Hamlisch</strong>. Her collaborations also span vocalists <strong>Emily Braden</strong> and <strong>Nancy Harmes</strong>, bassist <strong>Jennifer Vincent</strong>, singer-songwriter <strong>Ami Madeleine</strong>, pianists <strong>Mark G. Meadows</strong> and <strong>Willerm Delisfort</strong>, percussionist <strong>Vincent Pierce Smith</strong>, and beatboxer <strong>Mark Martin</strong>.</p>
+
+                <p>Her work has been recognized with multiple <strong>Fellowships and Awards</strong> from the <strong>New Jersey State Council on the Arts</strong> and <strong>the Mid-Atlantic Arts Foundation</strong>, in Choreography (2017 award recipient, 2023 funded finalist) and Interdisciplinary Arts (2024 award recipient). From 2019 to 2022, she held a fellowship at <strong>NJPAC</strong>, where she developed her award-winning and touring one-woman show, <strong>In The Pocket.</strong></p>
+
+                <p>Beyond the stage, Hillary-Marie is the founder and creator of <strong>iTapOnline.com</strong>, the go-to resource for tap dancers and teachers worldwide, and is widely regarded as a teacher of teachers. Mentored by and an assistant to Vaudeville legend <strong>Dr. Harold &ldquo;Stumpy&rdquo; Cromer</strong> from 2007 until his passing in 2013, she is committed to preserving the oral tradition of tap dance, ensuring its vibrancy for future generations. Her <strong>iTap Teacher Certificate Program</strong> and <strong>iTapOnline Studio</strong> train hundreds of educators annually in her signature methodology, <strong>The 5 Fundamentals of Tap Dance</strong> and <strong>The Fundamental Fusion Approach.</strong></p>
+              </div>
+            </details>
+
+            <!-- ---------- THE FUN STUFF ---------- -->
+            <details class="drop">
+              <summary>The Fun Stuff <span class="drop-icon" aria-hidden="true"></span></summary>
+              <div class="drop-body">
+                <!-- One line per row. To add a line, copy a <li> ... </li> row. -->
+                <ul class="fun-list">
+                  <li>Plant mom.</li>
+                  <li>Nora Roberts on the nightstand.</li>
+                  <li>Love language: cooking.</li>
+                  <li>Nak Muay, ooweee.</li>
+                  <li>Bilingual.</li>
+                  <li>Serial journaler.</li>
+                  <li>Every day starts with morning pages.</li>
+                  <li>Reading The Artist&rsquo;s Way (again).</li>
+                  <li>Always chasing sunlight and collecting stories.</li>
+                </ul>
+              </div>
+            </details>
+
+            <!-- ---------- TAP FAMILY TREE ---------- -->
+            <details class="drop">
+              <summary>Tap Family Tree <span class="drop-icon" aria-hidden="true"></span></summary>
+              <div class="drop-body">
+                <p>Hillary-Marie&rsquo;s tap dance roots run deep. She began her dance training in jazz dance at the age of five at her local dance studio in New Jersey and learned to play the drums from her father. Eventually combining her two passions, she began studying tap dance at age twelve. By fourteen, she was performing eleven shows a week with the pre-professional company <strong><em>Showstoppers</em></strong> at the Edward Nash Theatre.</p>
+                <p>Her training continued under <strong>Karen Callaway Williams</strong>, whose credits include the Tony Award-nominated Duke Ellington musical <em>Play On!</em>. In 2006, she joined the New Jersey Tap Ensemble&rsquo;s youth company and, three years later, became a principal dancer of NJTAP under the direction of <strong>Deborah Mitchell</strong>.</p>
+                <p>From 2007 until his passing in 2013, Hillary-Marie was mentored by and served as an assistant to Vaudeville legend <strong>Dr. Harold &ldquo;Stumpy&rdquo; Cromer</strong>, half of the world-famous duet <em>Stump &amp; Stumpy</em>, who shared the stage with icons like Ella Fitzgerald and Frank Sinatra.</p>
+                <p>A native of New Jersey, Hillary-Marie founded <strong>Jersey Tap Fest</strong> at the age of 17. This annual event, one of the largest tap dance festivals in the United States, ran through 2020 and was named the <strong>Best Place to See Live Dance Performances</strong> in New Jersey by New Jersey Stage.</p>
+                <p>At age 19, she moved to New York City and began performing weekly at Harlem&rsquo;s <strong>Cotton Club</strong> as part of Bessie-award winner <strong>Dormeshia</strong>&rsquo;s group, <strong><em>The Cotton Club Sophisticated Ladies</em></strong>. During this time, she also worked with Emmy-award-winning artist <strong>Jason Samuels Smith</strong> (<em>A.C.G.I.</em>) and <strong>Derick K. Grant</strong> (<em>Rhythm Is Our Business</em>). Her performance credits also include performances with <strong>Heather Cornell</strong> (<em>Conversations</em>), <strong>Roxane Butterfly</strong> (<em>New Dance Alliance</em>), <strong>Maurice Chestnut</strong> (<em>The Above Ground Project</em>), <strong>Christopher Scott</strong> (<em>W-L-U-V</em>), <strong>Lisa LaTouche</strong> (<em>Tap Phonics</em>), and as a featured guest artist with the <strong>Boston Tap Company</strong> (<em>Rhythm in the Night</em>).</p>
+                <p>Hillary-Marie went on to open <strong><em>Grooves Unlimited Dance Studio</em></strong> (2012&ndash;2023) with her co-founder <strong>Shani &ldquo;Virgo&rdquo; Alicea</strong>. Grooves Unlimited became the only dance studio in the United States dedicated entirely to hip hop and tap dance, and the home of <em>FutureSTEP Tap Company</em>. It served as a creative home for hundreds of young Groovers each week, embodying the mission to ignite their passion for hip hop and tap dance culture.</p>
+                <p>In 2016, Hillary-Marie founded <strong>iTapOnline.com</strong>, an international online education platform for tap dancers and teachers. Through iTapOnline, she continues the oral tradition in the digital age by preserving the stories, techniques, and teachings passed down to her, and sharing them with tap dancers around the world. What began as a way to keep tap dance accessible has grown into a global community of tap dancers and tap teachers dedicated to studying, sharing, and honoring the art form. In this way, Hillary-Marie carries her Tap Family Tree forward, ensuring that the spirit and tradition of tap dance continue to thrive for generations to come.</p>
+                <p>Hillary-Marie holds deep gratitude for the tap dancers of both past and present, those who carved the path through rhythm, resilience, and artistry, and those who continue to keep it alive today. She honors the legends whose stories and steps built the foundation of the dance, and she recognizes the teachers, peers, and students who carry that tradition forward with heart and authenticity. For her, every shuffle shared across generations is an act of remembrance and renewal, and a way to share gratitude and say <em>thank you</em>.</p>
+              </div>
+            </details>
+
+          </div>
+
+          <div class="about-next">
+            <a class="btn btn-coral" href="works.html">See the work</a>
+            <a class="btn btn-outline" href="press-kit.html">For Presenters</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+  <footer class="site-footer">
+    <div class="footer-columns">
+      <div>
+        <h2 class="footer-heading">Booking</h2>
+        <ul class="footer-list">
+          <li><a href="contact.html">Booking inquiries</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-heading">Social</h2>
+        <ul class="footer-list">
+          <li><a href="https://www.instagram.com/hillarymarietap" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/hillarymarieofficial" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.youtube.com/hillarymarietap" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-heading">For Presenters</h2>
+        <ul class="footer-list">
+          <li><a href="works.html#signature-work">In The Pocket</a></li>
+          <li><a href="press-kit.html">For Presenters</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="copyright">&copy; <span id="year">2026</span> Hillary-Marie, LLC</p>
+  </footer>
+
+  <script>
+    (function () {
+      var header = document.getElementById("site-header");
+      var toggle = document.getElementById("menu-toggle");
+      var nav = document.getElementById("site-nav");
+
+      /* Phone menu */
+      function setMenu(open) {
+        nav.classList.toggle("is-open", open);
+        header.classList.toggle("menu-open", open);
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        document.body.style.overflow = open ? "hidden" : "";
+      }
+      toggle.addEventListener("click", function () {
+        setMenu(toggle.getAttribute("aria-expanded") !== "true");
+      });
+      nav.addEventListener("click", function (event) {
+        if (event.target.closest("a")) { setMenu(false); }
+      });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") { setMenu(false); }
+      });
+
+      /* Drop-downs: slide open and closed instead of snapping.
+         They still work without this script, just without the slide. */
+      var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      document.querySelectorAll(".drop").forEach(function (drop) {
+        var summary = drop.querySelector("summary");
+        var body = drop.querySelector(".drop-body");
+        var running = null;
+
+        summary.addEventListener("click", function (event) {
+          if (calm || !body.animate) { return; }
+          event.preventDefault();
+          if (running) { running.cancel(); }
+
+          var opening = !drop.open;
+          if (opening) { drop.open = true; }
+
+          var full = body.scrollHeight;
+          var frames = opening
+            ? [{ height: "0px", opacity: 0 }, { height: full + "px", opacity: 1 }]
+            : [{ height: full + "px", opacity: 1 }, { height: "0px", opacity: 0 }];
+
+          running = body.animate(frames, { duration: 320, easing: "ease" });
+          running.onfinish = function () {
+            if (!opening) { drop.open = false; }
+            running = null;
+          };
+          running.oncancel = function () { running = null; };
+        });
+      });
+
+      /* Keep the copyright year current */
+      var year = document.getElementById("year");
+      if (year) { year.textContent = new Date().getFullYear(); }
+    })();
+  </script>
+</body>
+</html>

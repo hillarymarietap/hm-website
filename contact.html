@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Contact | Hillary-Marie</title>
+  <meta name="description" content="Booking, press, and teaching inquiries for tap dance artist Hillary-Marie.">
+
+  <meta property="og:title" content="Contact Hillary-Marie">
+  <meta property="og:description" content="Booking, press, and teaching inquiries.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/hero.jpg">
+
+  <!-- HM Branding fonts: Economica for titles, Montserrat for everything else -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Economica:wght@400;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       HM BRANDING
+       Change a color here and it changes everywhere on the page.
+       ========================================================== */
+    :root {
+      --navy: #1D2439;        /* Midnight navy: headings, body text */
+      --coral: #E2553C;       /* Kimono coral: buttons, accents */
+      --coral-dark: #C8432C;  /* Coral, pressed or hovered */
+      --teal: #0B4A47;        /* Headshot teal: section labels */
+      --periwinkle: #8BA3E0;  /* Periwinkle: thin lines, dividers */
+      --apricot: #EBAD7F;     /* Apricot: panels */
+      --white: #F3F1EE;       /* Studio white: page background */
+
+      --title-font: "Economica", "Arial Narrow", "Helvetica Neue Condensed", sans-serif;
+      --body-font: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+
+      --edge: clamp(1.25rem, 4vw, 3rem);          /* space at the page edges */
+      --lines-width: clamp(3rem, 6vw, 5.5rem);    /* the curved lines on the left */
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--white);
+      color: var(--navy);
+      font-family: var(--body-font);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    :focus-visible {
+      outline: 3px solid var(--periwinkle);
+      outline-offset: 3px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      margin: -1px; padding: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ==========================================================
+       BUTTONS
+       ========================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3rem;
+      padding: 0.5rem 1.6rem;
+      border: 2px solid transparent;
+      border-radius: 999px;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      line-height: 1.1;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-coral {
+      background: var(--coral);
+      color: #fff;
+    }
+    .btn-coral:hover { background: var(--coral-dark); }
+
+    .btn-outline {
+      border-color: var(--navy);
+      color: var(--navy);
+    }
+    .btn-outline:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .btn-small {
+      min-height: 2.5rem;
+      padding: 0.35rem 1.25rem;
+      font-size: 1.05rem;
+    }
+
+    /* ==========================================================
+       HEADER (the same on every page)
+       ========================================================== */
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem var(--edge);
+      background: var(--white);
+      color: var(--navy);
+      box-shadow: 0 1.5px 0 var(--periwinkle);
+    }
+
+    .wordmark {
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(1rem, 2.5vw, 2.25rem);
+    }
+
+    .site-nav a:not(.btn) {
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      padding: 0.35rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+    .site-nav a:not(.btn):hover,
+    .site-nav a[aria-current="page"] { border-bottom-color: var(--coral); }
+
+    .menu-toggle {
+      display: none;
+      width: 2.75rem;
+      height: 2.75rem;
+      padding: 0;
+      border: 0;
+      background: none;
+      color: inherit;
+      cursor: pointer;
+    }
+    .menu-toggle .bars,
+    .menu-toggle .bars::before,
+    .menu-toggle .bars::after {
+      display: block;
+      width: 1.6rem;
+      height: 2px;
+      margin: 0 auto;
+      background: currentColor;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+    .menu-toggle .bars { position: relative; }
+    .menu-toggle .bars::before,
+    .menu-toggle .bars::after { content: ""; position: absolute; left: 0; }
+    .menu-toggle .bars::before { top: -0.5rem; }
+    .menu-toggle .bars::after { top: 0.5rem; }
+    .menu-toggle[aria-expanded="true"] .bars { background: transparent; }
+    .menu-toggle[aria-expanded="true"] .bars::before { transform: translateY(0.5rem) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] .bars::after { transform: translateY(-0.5rem) rotate(-45deg); }
+
+    @media (max-width: 760px) {
+      .menu-toggle { display: block; position: relative; z-index: 2; }
+
+      .site-nav {
+        position: fixed;
+        inset: 0;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.75rem;
+        background: var(--navy);
+        color: var(--white);
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.25s ease, visibility 0.25s ease;
+      }
+      .site-nav.is-open { visibility: visible; opacity: 1; }
+
+      .site-nav a:not(.btn) {
+        font-family: var(--title-font);
+        font-weight: 700;
+        font-size: 2rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      /* Keep the close button visible on top of the open menu */
+      .site-header.menu-open { color: var(--white); background: transparent; box-shadow: none; }
+      .site-header.menu-open .wordmark { opacity: 0; }
+    }
+
+    /* ==========================================================
+       PAGE FRAME: the curved lines down the left edge, as in the EPK
+       ========================================================== */
+    .page {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: clamp(6.5rem, 12vw, 9rem) var(--edge) clamp(3rem, 7vw, 5rem) calc(var(--lines-width) + 0.75rem);
+    }
+
+    .page-lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: var(--lines-width);
+      height: 100%;
+      overflow: visible;
+    }
+    .page-lines path {
+      fill: none;
+      stroke-width: 1.5;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .page-inner {
+      max-width: 70rem;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      margin: 0 0 clamp(1.75rem, 4vw, 3rem);
+      font-family: var(--title-font);
+      font-weight: 400;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      line-height: 1;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ==========================================================
+       CONTACT: a short intro and the apricot arch on the left,
+       the form on the right
+       ========================================================== */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+      grid-template-areas:
+        "intro form"
+        "arch  form";
+      grid-template-rows: auto 1fr;
+      gap: 1.75rem clamp(2rem, 5vw, 4.5rem);
+      align-items: start;
+    }
+
+    .contact-intro { grid-area: intro; }
+    .contact-intro p { margin: 0 0 0.9rem; }
+    .contact-intro p:last-child { margin-bottom: 0; }
+    .contact-intro .lede { font-weight: 500; font-size: 1.1rem; line-height: 1.55; }
+    .contact-intro a {
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid var(--coral);
+    }
+    .contact-intro a:hover { color: var(--coral); }
+
+    /* The apricot arch, as in the EPK */
+    .arch {
+      grid-area: arch;
+      padding: 5.5rem 1.75rem 2.5rem;
+      border-radius: 999px 999px 0 0;
+      background: rgba(235, 173, 127, 0.45);
+      text-align: center;
+    }
+
+    .arch-heading {
+      margin: 0;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.5rem;
+      line-height: 1.2;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .arch-rule {
+      width: 60%;
+      height: 1.5px;
+      margin: 1rem auto;
+      border: 0;
+      background: var(--coral);
+    }
+
+    .arch-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .arch-list li + li { margin-top: 0.6rem; }
+
+    /* ---------- The form ---------- */
+    .contact-form { grid-area: form; max-width: 40rem; }
+
+    .field { margin: 0 0 1.35rem; }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 1.25rem;
+    }
+
+    .field label {
+      display: block;
+      margin: 0 0 0.4rem;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.2rem;
+      line-height: 1.2;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .optional {
+      font-family: var(--body-font);
+      font-weight: 400;
+      font-size: 0.75rem;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--navy);
+      opacity: 0.7;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      display: block;
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      border: 1.5px solid var(--periwinkle);
+      border-radius: 0;
+      background: #fff;
+      color: var(--navy);
+      font-family: var(--body-font);
+      font-size: 1rem;
+      line-height: 1.4;
+      transition: border-color 0.2s ease;
+    }
+    .field input:hover,
+    .field select:hover,
+    .field textarea:hover,
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus { border-color: var(--navy); }
+
+    .field textarea { min-height: 10rem; resize: vertical; }
+
+    .field select {
+      -webkit-appearance: none;
+      appearance: none;
+      padding-right: 2.75rem;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23E2553C' stroke-width='2'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 0.85rem;
+    }
+
+    /* A hidden box that only spam robots fill in */
+    .trap { display: none; }
+
+    button.btn { cursor: pointer; }
+    button.btn:disabled { opacity: 0.6; cursor: default; }
+
+    .form-status { min-height: 1.6rem; margin: 1rem 0 0; font-weight: 500; }
+    .form-status.is-error { color: #A8321D; }
+    .form-status a { font-weight: 600; }
+
+    /* Shown in place of the form once a message is sent */
+    .form-done {
+      grid-area: form;
+      max-width: 40rem;
+      padding: 1.75rem 1.5rem 1.75rem 1.75rem;
+      border-left: 5px solid var(--coral);
+      background: rgba(235, 173, 127, 0.45);
+    }
+    .form-done h2 {
+      margin: 0 0 0.5rem;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 1.15;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+    .form-done p { margin: 0; font-weight: 500; }
+    [hidden] { display: none !important; }
+
+    @media (max-width: 860px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "intro"
+          "form"
+          "arch";
+        grid-template-rows: none;
+        gap: 2rem;
+      }
+      .arch { max-width: 22rem; margin: 0 auto; width: 100%; }
+    }
+
+    @media (max-width: 520px) {
+      .field-row { grid-template-columns: 1fr; }
+    }
+
+    /* ==========================================================
+       FOOTER (the same on every page)
+       ========================================================== */
+    .site-footer {
+      padding: clamp(2.5rem, 6vw, 4rem) var(--edge) 1.5rem;
+      background: var(--white);
+      border-top: 1.5px solid var(--periwinkle);
+    }
+
+    .footer-columns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem clamp(1.5rem, 5vw, 4rem);
+      max-width: 62rem;
+      margin: 0 auto;
+    }
+
+    .footer-columns > div + div {
+      padding-left: clamp(1.5rem, 5vw, 4rem);
+      border-left: 1.5px solid var(--periwinkle);
+    }
+
+    .footer-heading {
+      margin: 0 0 0.6rem;
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--coral);
+    }
+
+    .footer-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+    .footer-list li + li { margin-top: 0.45rem; }
+    .footer-list a { text-decoration: none; border-bottom: 1.5px solid transparent; }
+    .footer-list a:hover { border-bottom-color: var(--coral); }
+
+    .copyright {
+      margin: clamp(2rem, 5vw, 3rem) 0 0;
+      text-align: center;
+      font-size: 0.7rem;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 640px) {
+      .footer-columns { grid-template-columns: 1fr; }
+      .footer-columns > div + div {
+        padding-left: 0;
+        padding-top: 1.5rem;
+        border-left: 0;
+        border-top: 1.5px solid var(--periwinkle);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========================================================
+       HEADER
+       ======================================================== -->
+  <header class="site-header" id="site-header">
+    <a class="wordmark" href="index.html">Hillary-Marie</a>
+
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="sr-only">Menu</span>
+      <span class="bars" aria-hidden="true"></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <a href="about.html">The Story</a>
+      <a href="works.html">The Work</a>
+      <a href="press-kit.html">For Presenters</a>
+      <a href="contact.html" aria-current="page">Connect</a>
+      <a class="btn btn-coral btn-small" href="contact.html">Book</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <svg class="page-lines" viewBox="0 0 120 1056" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M18,0 C95,280 95,660 4,1056" stroke="#8BA3E0"/>
+      <path d="M30,0 C108,280 108,660 14,1056" stroke="#E2553C"/>
+    </svg>
+
+    <div class="page-inner">
+      <h1 class="page-title">Connect</h1>
+
+      <div class="contact-layout">
+
+        <!-- ==================================================
+             INTRO: the words beside the form
+             ================================================== -->
+        <div class="contact-intro">
+          <p class="lede">For bookings, collaborations, teaching inquiries, and press, please use the form.</p>
+          <p>Presenters: bios, photos, and technical details are in the <a href="press-kit.html">Press Kit</a>.</p>
+        </div>
+
+        <!-- ==================================================
+             THE FORM
+
+             HOW THE FORM REACHES YOUR INBOX
+             The form is delivered by Web3Forms (web3forms.com), so
+             your email address never appears on this page.
+             Connected to your Web3Forms account (form address:
+             hillary-marie.com/contact). To change the inbox, make a
+             new form in Web3Forms and replace the access key below.
+             The key is safe to show in this file. It can only send
+             messages to your inbox.
+             ================================================== -->
+        <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="17b3a8da-06a2-4f00-91de-662d942f65d1">
+          <input type="hidden" name="from_name" value="hillary-marie.com">
+          <input type="hidden" name="subject" value="Website inquiry">
+          <input class="trap" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
+
+          <div class="field-row">
+            <div class="field">
+              <label for="f-name">Name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-org">Organization or venue <span class="optional">(optional)</span></label>
+            <input id="f-org" name="organization" type="text" autocomplete="organization">
+          </div>
+
+          <!-- To add a choice, copy an <option> row. The word after
+               data-key lets other pages open this form with that
+               choice already picked, like contact.html?about=masterclass -->
+          <div class="field">
+            <label for="f-topic">I am reaching out about</label>
+            <select id="f-topic" name="topic" required>
+              <option value="" selected disabled>Choose one</option>
+              <option data-key="performance">Booking a performance</option>
+              <option data-key="masterclass">Booking a master class</option>
+              <option data-key="collaboration">A collaboration</option>
+              <option data-key="press">Press and media</option>
+              <option data-key="other">Something else</option>
+            </select>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="f-dates">Dates <span class="optional">(optional)</span></label>
+              <input id="f-dates" name="dates" type="text">
+            </div>
+            <div class="field">
+              <label for="f-location">City and venue <span class="optional">(optional)</span></label>
+              <input id="f-location" name="location" type="text">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-message">Message</label>
+            <textarea id="f-message" name="message" rows="6" required></textarea>
+          </div>
+
+          <button class="btn btn-coral" id="send-button" type="submit">Send message</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <!-- Shown after a message is sent -->
+        <div class="form-done" id="form-done" tabindex="-1" hidden>
+          <h2>Thank you</h2>
+          <p>Your message is on its way.</p>
+        </div>
+
+        <!-- ==================================================
+             THE ARCH: what helps to include
+             ================================================== -->
+        <aside class="arch">
+          <h2 class="arch-heading">Helpful to include</h2>
+          <hr class="arch-rule">
+          <ul class="arch-list">
+            <li>The dates you have in mind</li>
+            <li>The city and venue</li>
+            <li>The kind of event: performance, master class, or residency</li>
+          </ul>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+  <footer class="site-footer">
+    <div class="footer-columns">
+      <div>
+        <h2 class="footer-heading">Booking</h2>
+        <ul class="footer-list">
+          <li><a href="contact.html">Booking inquiries</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-heading">Social</h2>
+        <ul class="footer-list">
+          <li><a href="https://www.instagram.com/hillarymarietap" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/hillarymarieofficial" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.youtube.com/hillarymarietap" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-heading">For Presenters</h2>
+        <ul class="footer-list">
+          <li><a href="works.html#signature-work">In The Pocket</a></li>
+          <li><a href="press-kit.html">For Presenters</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="copyright">&copy; <span id="year">2026</span> Hillary-Marie, LLC</p>
+  </footer>
+
+  <script>
+    (function () {
+      var header = document.getElementById("site-header");
+      var toggle = document.getElementById("menu-toggle");
+      var nav = document.getElementById("site-nav");
+
+      /* Phone menu */
+      function setMenu(open) {
+        nav.classList.toggle("is-open", open);
+        header.classList.toggle("menu-open", open);
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        document.body.style.overflow = open ? "hidden" : "";
+      }
+      toggle.addEventListener("click", function () {
+        setMenu(toggle.getAttribute("aria-expanded") !== "true");
+      });
+      nav.addEventListener("click", function (event) {
+        if (event.target.closest("a")) { setMenu(false); }
+      });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") { setMenu(false); }
+      });
+
+      /* ------------------------------------------------------
+         The contact form
+         It sends without leaving the page. If this script does
+         not run, the form still sends the ordinary way.
+         ------------------------------------------------------ */
+      var form = document.getElementById("contact-form");
+      var topic = document.getElementById("f-topic");
+      var button = document.getElementById("send-button");
+      var status = document.getElementById("form-status");
+      var done = document.getElementById("form-done");
+      var NOT_CONNECTED = "PASTE-YOUR-ACCESS-KEY-HERE";
+
+      /* A link like contact.html?about=masterclass opens with that choice picked */
+      var wanted = null;
+      try { wanted = new URLSearchParams(window.location.search).get("about"); } catch (error) {}
+      if (wanted) {
+        Array.prototype.forEach.call(topic.options, function (option) {
+          if (option.getAttribute("data-key") === wanted) { topic.value = option.value; }
+        });
+      }
+
+      function say(message, isError) {
+        status.textContent = message;
+        status.classList.toggle("is-error", Boolean(isError));
+      }
+
+      function sayNotSent() {
+        status.classList.add("is-error");
+        status.innerHTML = "Your message was not sent. Please try again in a moment, or send a note on " +
+          '<a href="https://www.instagram.com/hillarymarietap" target="_blank" rel="noopener">Instagram</a>.';
+      }
+
+      form.addEventListener("submit", function (event) {
+        if (!window.fetch || !window.FormData) { return; }
+        event.preventDefault();
+
+        var data = new FormData(form);
+
+        if (data.get("access_key") === NOT_CONNECTED) {
+          say("This form is not connected to an inbox yet.", true);
+          return;
+        }
+
+        data.set("subject", "Website inquiry: " + data.get("topic"));
+
+        button.disabled = true;
+        button.textContent = "Sending";
+        say("");
+
+        fetch(form.action, {
+          method: "POST",
+          headers: { "Accept": "application/json" },
+          body: data
+        })
+          .then(function (response) { return response.json(); })
+          .then(function (result) {
+            if (!result || !result.success) { throw new Error("not sent"); }
+            form.hidden = true;
+            done.hidden = false;
+            done.focus();
+          })
+          .catch(function () {
+            sayNotSent();
+            button.disabled = false;
+            button.textContent = "Send message";
+          });
+      });
+
+      /* Keep the copyright year current */
+      var year = document.getElementById("year");
+      if (year) { year.textContent = new Date().getFullYear(); }
+    })();
+  </script>
+</body>
+</html>
