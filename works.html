@@ -387,6 +387,17 @@
     /* Once a video code is filled in, the frame shows its picture */
     /* Finished thumbnails already carry their own shading */
     .video-frame.thumb::after { content: none; }
+    /* Collaboration highlights: the play button sits in the middle of the piano,
+       clear of the title printed on the bottom left of the thumbnail */
+    .video-frame.center-play .play,
+    .video-frame.center-play:has(.poster) .play {
+      left: 50%;
+      top: 50%;
+      bottom: auto;
+      width: 4.5rem;
+      height: 4.5rem;
+      transform: translate(-50%, -50%);
+    }
     .video-frame.has-video {
       background-size: cover;
       background-position: center;
@@ -523,6 +534,8 @@
       border-top: 5px solid var(--coral);
       background: rgba(235, 173, 127, 0.45);
     }
+    .program-link { display: block; transition: opacity 0.2s; }
+    .program-link:hover, .program-link:focus-visible { opacity: 0.85; }
     .program-img {
       display: block;
       width: 100%;
@@ -629,6 +642,7 @@
       .credits { columns: 1; }
       /* On phones the note stacks above the play button, clear of the photo's subject */
       .video-frame:has(.poster) .play { left: 0.75rem; bottom: 0.75rem; width: 2.75rem; height: 2.75rem; }
+      .video-frame.center-play:has(.poster) .play { left: 50%; bottom: auto; width: 3.5rem; height: 3.5rem; }
       .video-frame:has(.poster) .video-note {
         left: 0.75rem;
         bottom: 4rem;
@@ -818,7 +832,7 @@
              in its address (in youtube.com/watch?v=abc123XYZ the
              code is abc123XYZ) and paste it between the quotes of
              data-video="" below. -->
-        <div class="video-frame feature-video thumb" data-video="3AAgTlSP59Y" data-title="Hillary-Marie collaboration highlights">
+        <div class="video-frame feature-video thumb center-play" data-video="3AAgTlSP59Y" data-title="Hillary-Marie collaboration highlights">
           <img class="poster" src="images/highlights-collaboration.jpg" alt="">
           <span class="play" aria-hidden="true"></span>
           <span class="video-note">Video coming soon</span>
@@ -932,17 +946,17 @@
           <p class="programs-tag">Any level. Anytime. Anywhere.</p>
           <div class="programs">
             <div class="program">
-              <img class="program-img" src="images/program-studio.png" alt="The iTapOnline Studio shown on a desktop screen and a laptop" loading="lazy">
+              <a class="program-link" href="https://www.itaponline.com/membership" target="_blank" rel="noopener"><img class="program-img" src="images/program-studio.png" alt="The iTapOnline Studio shown on a desktop screen and a laptop" loading="lazy"></a>
               <h4>The iTapOnline Studio</h4>
               <p>Access high-quality tap tutorials, anytime, anywhere, at every level.</p>
             </div>
             <div class="program">
-              <img class="program-img" src="images/program-tcp.png" alt="The iTap Teacher Certificate Program shown on a laptop and a tablet" loading="lazy">
+              <a class="program-link" href="https://www.itaponline.com/teacher" target="_blank" rel="noopener"><img class="program-img" src="images/program-tcp.png" alt="The iTap Teacher Certificate Program shown on a laptop and a tablet" loading="lazy"></a>
               <h4>The iTap Teacher Certificate Program</h4>
               <p>A 10-week structured summer training to become the best tap teacher you can be.</p>
             </div>
             <div class="program">
-              <img class="program-img" src="images/program-retreat.png" alt="iTap Teacher Retreat participants smiling in a group selfie and standing in a circle in the studio" loading="lazy">
+              <a class="program-link" href="https://www.itaponline.com/programs" target="_blank" rel="noopener"><img class="program-img" src="images/program-retreat.png" alt="iTap Teacher Retreat participants smiling in a group selfie and standing in a circle in the studio" loading="lazy"></a>
               <h4>The iTap Teacher Retreat</h4>
               <p>An intimate, in-studio weekend to reconnect with your artistry, your people, and your purpose.</p>
             </div>
